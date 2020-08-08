@@ -1,0 +1,43 @@
+{
+	"name": "wppunk/plugin-name",
+	"description": "Plugin description",
+	"license": "GNU",
+	"authors": [
+		{
+			"name": "WPPunk",
+			"email": "i@wp-punk.com"
+		}
+	],
+	"config": {
+		"vendor-dir": ".vendor",
+		"preferred-install": "dist",
+		"platform": {
+			"php": "7.2"
+		}
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": ".packages/composer/phpcs-ruleset"
+		}
+	],
+	"require": {},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+		"wp-coding-standards/wpcs": "^2.3",
+		"plugin-name/phpcs-ruleset": "^1.0.0",
+		"phpcompatibility/php-compatibility": "^9.3"
+	},
+	"autoload": {
+		"psr-4": {
+			"PluginName\\": "src/"
+		}
+	},
+	"extra": {
+		"phpcodesniffer-search-depth": 1
+	},
+	"scripts": {
+		"unit": "phpunit -c tests/phpunit/phpunit.xml",
+		"cs": "phpcs --standard=PluginName ."
+	}
+}
