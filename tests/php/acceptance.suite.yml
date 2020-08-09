@@ -8,9 +8,9 @@
 actor: AcceptanceTester
 extensions:
     enabled:
-        - Codeception\Extension\RunProcess:
-              0: chromedriver --url-base=/wd/hub
-              sleep: 5 # wait 5 seconds for processes to boot
+        -   Codeception\Extension\RunProcess:
+                0: chromedriver --url-base=/wd/hub
+                sleep: 5 # wait 5 seconds for processes to boot
         - Codeception\Extension\RunFailed
     commands:
         - Codeception\Command\GenerateWPUnit
@@ -30,7 +30,7 @@ modules:
             dsn: 'mysql:host=%DB_HOST%;dbname=%DB_NAME%'
             user: '%DB_USER%'
             password: '%DB_PASSWORD%'
-#             dump: './../../.codeception/_data/dump.sql'
+            dump: '.codeception/_data/dump.sql'
             #import the dump before the tests; this means the test site database will be repopulated before the tests.
             populate: true
             # re-import the dump between tests; this means the test site database will be repopulated between the tests.
@@ -60,7 +60,7 @@ env:
     github-actions:
         extensions:
             enabled:
-                - Codeception\Extension\RunProcess:
+                -   Codeception\Extension\RunProcess:
         modules:
             config:
                 WPWebDriver:

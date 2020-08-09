@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <ruleset name="PluginName">
 	<description>The code standard for PluginName.</description>
-	<config name="testVersion" value="7.2-"/>
+	<config name="testVersion" value="7.4-"/>
 	<config name="minimum_supported_wp_version" value="5.5"/>
 	<exclude-pattern>\.packages/*</exclude-pattern>
 	<exclude-pattern>\.vendor/*</exclude-pattern>
