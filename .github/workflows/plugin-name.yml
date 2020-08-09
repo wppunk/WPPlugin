@@ -92,7 +92,7 @@ jobs:
 
             -   name: Make a DB dump for Codeception
                 working-directory: ${{ env.wp-plugins-directory }}
-                run: mysqldump --column-statistics=0 --host="${{ env.DB_HOST }}" --user="${{ env.DB_USER }}" --password="${{ env.DB_PASSWORD }}" ${{ env.DB_NAME }} > .codeception/_data/dump.sql
+                run: mysqldump --host="${{ env.DB_HOST }}" --user="${{ env.DB_USER }}" --password="${{ env.DB_PASSWORD }}" ${{ env.DB_NAME }} > .codeception/_data/dump.sql
 
             -   name: Setup hosts
                 run: |
