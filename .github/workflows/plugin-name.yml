@@ -34,26 +34,6 @@ jobs:
                 with:
                     path: ${{ env.wp-plugins-directory }}
 
-            -   name: Validate composer.json and composer.lock
-                run: composer validate
-                with:
-                    path: ${{ env.wp-plugins-directory }}
-
-            -   name: Install dependencies
-                run: composer install
-                with:
-                    path: ${{ env.wp-plugins-directory }}
-
-            -   name: Validate Coding Standard
-                run: .vendor/bin/composer cs
-                with:
-                    path: ${{ env.wp-plugins-directory }}
-
-            -   name: Run unit tests
-                run: .vendor/bin/composer unit
-                with:
-                    path: ${{ env.wp-plugins-directory }}
-
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
                 with:
@@ -63,6 +43,22 @@ jobs:
                     ini-values: ${{ env.php-ini-values }}
                 env:
                     update: true
+
+            -   name: Validate composer.json and composer.lock
+                working-directory: ${{ env.wp-plugins-directory }}
+                run: composer validate
+
+            -   name: Install dependencies
+                working-directory: ${{ env.wp-plugins-directory }}
+                run: composer install
+
+            -   name: Validate Coding Standard
+                working-directory: ${{ env.wp-plugins-directory }}
+                run: .vendor/bin/composer cs
+
+            -   name: Run unit tests
+                working-directory: ${{ env.wp-plugins-directory }}
+                run: .vendor/bin/composer unit
 
             -   name: Install WP CLI
                 run: |
