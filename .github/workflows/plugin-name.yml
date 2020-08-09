@@ -28,6 +28,18 @@ jobs:
             WP_ADMIN_PASSWORD: admin
             WP_ADMIN_EMAIL: admin@plugin-name.test
 
+        services:
+            mysql:
+                image: mysql:5.6
+                env:
+                    MYSQL_USER: ${{ env.DB_USER }}
+                    MYSQL_PASSWORD: ${{ env.DB_PASSWORD }}
+                    MYSQL_DATABASE: ${{ env.DB_NAME }}
+                    MYSQL_ALLOW_EMPTY_PASSWORD: yes
+                ports:
+                    - 3306:3306
+                options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
         steps:
             -   name: Download Plugin
                 uses: actions/checkout@v2
@@ -76,7 +88,7 @@ jobs:
                     wp config create --dbname="${{ env.DB_NAME }}" --dbuser="${{ env.DB_USER }}" --dbpass="${{ env.DB_PASSWORD }}" --dbhost="${{ env.DB_HOST }}" --dbprefix="${{ env.DB_TABLE_PREFIX }}"
                     wp core install --url="${{ env.WP_URL }}" --title="Test" --admin_user="${{ env.WP_ADMIN_USERNAME }}" --admin_password="${{ env.WP_ADMIN_PASSWORD }}" --admin_email="${{ env.WP_ADMIN_EMAIL }}" --skip-email
                     wp rewrite structure '/%postname%/' --hard
-#                    wp plugin activate --all
+                    wp plugin activate --all
 
             -   name: Make a DB dump for Codeception
                 working-directory: ${{ env.wp-plugins-directory }}
