@@ -14,7 +14,6 @@
 
 global $argv;
 
-var_dump( $argv ); //phpcs:ignore
 if ( in_array( 'unit', $argv, true ) ) {
 	return [];
 }
