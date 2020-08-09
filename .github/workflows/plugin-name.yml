@@ -122,7 +122,7 @@ jobs:
 
             -   name: Run Acceptance Tests
                 working-directory: ${{ env.wp-plugins-directory }}
-                run: tests-group acceptance --steps --env github-actions
+                run: .vendor/bin/composer acceptance
 
             -   name: Archive Codeception output
                 uses: actions/upload-artifact@v1
