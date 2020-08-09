@@ -14,6 +14,7 @@
 
 global $argv;
 
+var_dump( $argv );
 if ( in_array( 'unit', $argv, true ) ) {
 	return [];
 }
