@@ -1,0 +1,23 @@
+name: PluginName GitHub Actions
+
+on: [push]
+
+jobs:
+    build:
+
+        runs-on: ubuntu-latest
+
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   name: Validate composer.json and composer.lock
+                run: composer validate
+
+            -   name: Install dependencies
+                run: composer install
+
+            -   name: Validate Coding Standard
+                run: .vendor/bin/composer cs
+
+            -   name: Run unit tests
+                run: .vendor/bin/composer unit
