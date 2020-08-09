@@ -41,7 +41,7 @@ class Settings {
 	 * @param string $hook_suffix The current admin page.
 	 */
 	public function enqueue_styles( string $hook_suffix ) {
-		if ( strpos( $hook_suffix, Plugin::SLUG ) ) {
+		if ( false === strpos( $hook_suffix, Plugin::SLUG ) ) {
 			return;
 		}
 
@@ -64,7 +64,7 @@ class Settings {
 	 * @param string $hook_suffix The current admin page.
 	 */
 	public function enqueue_scripts( string $hook_suffix ) {
-		if ( strpos( $hook_suffix, Plugin::SLUG ) ) {
+		if ( false === strpos( $hook_suffix, Plugin::SLUG ) ) {
 			return;
 		}
 

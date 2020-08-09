@@ -1,2 +1,3 @@
 /.vendor/
 /.idea/
+/.codception/_config/params.local.php

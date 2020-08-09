@@ -1,0 +1,69 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the WPWebDriver or WPBrowser.
+# Use WPDb to set up your initial database fixture.
+# If you need both WPWebDriver and WPBrowser tests - create a separate suite.
+
+actor: AcceptanceTester
+extensions:
+    enabled:
+        - Codeception\Extension\RunProcess:
+              0: chromedriver --url-base=/wd/hub
+              sleep: 5 # wait 5 seconds for processes to boot
+        - Codeception\Extension\RunFailed
+    commands:
+        - Codeception\Command\GenerateWPUnit
+        - Codeception\Command\GenerateWPRestApi
+        - Codeception\Command\GenerateWPRestController
+        - Codeception\Command\GenerateWPRestPostTypeController
+        - Codeception\Command\GenerateWPAjax
+        - Codeception\Command\GenerateWPCanonical
+        - Codeception\Command\GenerateWPXMLRPC
+modules:
+    enabled:
+        - Asserts
+        - WPDb
+        - WPWebDriver
+    config:
+        WPDb:
+            dsn: 'mysql:host=%DB_HOST%;dbname=%DB_NAME%'
+            user: '%DB_USER%'
+            password: '%DB_PASSWORD%'
+#             dump: './../../.codeception/_data/dump.sql'
+            #import the dump before the tests; this means the test site database will be repopulated before the tests.
+            populate: true
+            # re-import the dump between tests; this means the test site database will be repopulated between the tests.
+            cleanup: true
+            waitlock: 10
+            url: '%WP_URL%'
+            urlReplacement: true #replace the hardcoded dump URL with the one above
+            tablePrefix: '%DB_TABLE_PREFIX%'
+        WPWebDriver:
+            url: '%WP_URL%'
+            port: 9515
+            window_size: maximize
+            browser: chrome
+            host: localhost
+            adminUsername: '%WP_ADMIN_USERNAME%'
+            adminPassword: '%WP_ADMIN_PASSWORD%'
+            adminPath: '%WP_ADMIN_PATH%'
+            capabilities:
+                # Used in more recent releases of Selenium.
+                "goog:chromeOptions":
+                    # Headless config for production, redefined in env section below.
+                    # args: ["--user-agent=wp-browser", "--headless"]
+                    # Non-headless config for debugging.
+                    args: ["--user-agent=wp-browser"]
+
+env:
+    github-actions:
+        extensions:
+            enabled:
+                - Codeception\Extension\RunProcess:
+        modules:
+            config:
+                WPWebDriver:
+                    capabilities:
+                        "goog:chromeOptions":
+                            args: ["--user-agent=wp-browser", "--headless"]

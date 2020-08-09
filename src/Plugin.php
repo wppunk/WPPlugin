@@ -53,9 +53,12 @@ class Plugin {
 	 * @since {VERSION}
 	 */
 	public function run() {
-		is_admin() ?
-			$this->run_admin() :
+
+		if ( is_admin() ) {
+			$this->run_admin();
+		} else {
 			$this->run_front();
+		}
 	}
 
 	/**
@@ -64,7 +67,8 @@ class Plugin {
 	 * @since {VERSION}
 	 */
 	private function run_admin() {
-		( new Settings() )->hooks();
+		$settings = new Settings();
+		$settings->hooks();
 	}
 
 	/**

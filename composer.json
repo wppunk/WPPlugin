@@ -12,7 +12,7 @@
 		"vendor-dir": ".vendor",
 		"preferred-install": "dist",
 		"platform": {
-			"php": "7.2"
+			"php": "7.4"
 		}
 	},
 	"repositories": [
@@ -26,7 +26,14 @@
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
 		"wp-coding-standards/wpcs": "^2.3",
 		"plugin-name/phpcs-ruleset": "^1.0.0",
-		"phpcompatibility/php-compatibility": "^9.3"
+		"phpcompatibility/php-compatibility": "^9.3",
+		"brain/monkey": "^2.4",
+		"codeception/codeception": "^4.1",
+		"codeception/aspect-mock": "^3.1",
+		"codeception/module-asserts": "^1.2",
+		"codeception/module-db": "^1.0",
+		"codeception/module-webdriver": "^1.1",
+		"lucatume/wp-browser": "^2.6"
 	},
 	"autoload": {
 		"psr-4": {
@@ -37,7 +44,8 @@
 		"phpcodesniffer-search-depth": 1
 	},
 	"scripts": {
-		"unit": "phpunit -c tests/phpunit/phpunit.xml",
+		"acceptance": "codecept clean && codecept run acceptance",
+		"unit": "codecept clean && codecept run unit",
 		"cs": "phpcs --standard=PluginName ."
 	}
 }

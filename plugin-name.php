@@ -2,15 +2,15 @@
 /**
  * Bootstrap file
  *
- * Plugin Name:	Plugin Name
+ * Plugin Name: Plugin Name
  * Description: The plugin adds information about the games to the site posts.
- * Version: 	1.0.0
- * Author: 		WPPunk
- * Author 		URI: https://profiles.wordpress.org/wppunk/
- * License: 	GPLv2 or later
+ * Version:     1.0.0
+ * Author:      WPPunk
+ * Author URI:  https://profiles.wordpress.org/wppunk/
+ * License:     GPLv2 or later
  * Text Domain: plugin-name
  *
- * @package  	PluginName
+ * @package     PluginName
  */
 
 // Exit if accessed directly.
