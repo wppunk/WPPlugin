@@ -34,16 +34,6 @@ jobs:
                 with:
                     path: ${{ env.wp-plugins-directory }}
 
-            -   name: Setup PHP
-                uses: shivammathur/setup-php@v2
-                with:
-                    tools: pecl
-                    php-version: ${{ matrix.php-versions }}
-                    extensions: ${{ env.php-extensions }}
-                    ini-values: ${{ env.php-ini-values }}
-                env:
-                    update: true
-
             -   name: Validate composer.json and composer.lock
                 working-directory: ${{ env.wp-plugins-directory }}
                 run: composer validate
@@ -59,6 +49,16 @@ jobs:
             -   name: Run unit tests
                 working-directory: ${{ env.wp-plugins-directory }}
                 run: .vendor/bin/composer unit
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    tools: pecl
+                    php-version: ${{ matrix.php-versions }}
+                    extensions: ${{ env.php-extensions }}
+                    ini-values: ${{ env.php-ini-values }}
+                env:
+                    update: true
 
             -   name: Install WP CLI
                 run: |
@@ -76,7 +76,7 @@ jobs:
                     wp config create --dbname="${{ env.DB_NAME }}" --dbuser="${{ env.DB_USER }}" --dbpass="${{ env.DB_PASSWORD }}" --dbhost="${{ env.DB_HOST }}" --dbprefix="${{ env.DB_TABLE_PREFIX }}"
                     wp core install --url="${{ env.WP_URL }}" --title="Test" --admin_user="${{ env.WP_ADMIN_USERNAME }}" --admin_password="${{ env.WP_ADMIN_PASSWORD }}" --admin_email="${{ env.WP_ADMIN_EMAIL }}" --skip-email
                     wp rewrite structure '/%postname%/' --hard
-                    wp plugin activate --all
+#                    wp plugin activate --all
 
             -   name: Make a DB dump for Codeception
                 working-directory: ${{ env.wp-plugins-directory }}
