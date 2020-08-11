@@ -22,7 +22,9 @@ use PluginName\Plugin;
 
 require_once plugin_dir_path( __FILE__ ) . '.vendor/autoload.php';
 
-define( 'PLUGIN_NAME_DEBUG', false );
+if ( ! defined( 'PLUGIN_NAME_DEBUG' ) {
+	define( 'PLUGIN_NAME_DEBUG', false );
+}
 define( 'PLUGIN_NAME_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PLUGIN_NAME_URL', plugin_dir_url( __FILE__ ) );
 
