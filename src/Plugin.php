@@ -44,7 +44,7 @@ class Plugin {
 	 * @return string
 	 */
 	public static function get_assets_suffix(): string {
-		return PLUGIN_NAME_DEBUG ? '.min' : '';
+		return constant( 'PLUGIN_NAME_DEBUG' ) ? '.min' : '';
 	}
 
 	/**
@@ -53,7 +53,6 @@ class Plugin {
 	 * @since {VERSION}
 	 */
 	public function run() {
-
 		if ( is_admin() ) {
 			$this->run_admin();
 		} else {
@@ -67,8 +66,7 @@ class Plugin {
 	 * @since {VERSION}
 	 */
 	private function run_admin() {
-		$settings = new Settings();
-		$settings->hooks();
+		( new Settings() )->hooks();
 	}
 
 	/**
