@@ -52,11 +52,15 @@ jobs:
 
             -   name: Install dependencies
                 working-directory: ${{ env.wp-plugins-directory }}
-                run: composer install
+                run: |
+                    composer install
+                    yarn install
 
             -   name: Validate Coding Standard
                 working-directory: ${{ env.wp-plugins-directory }}
-                run: .vendor/bin/composer cs
+                run: |
+                    .vendor/bin/composer cs
+                    yarn cs
 
             -   name: Run unit tests
                 working-directory: ${{ env.wp-plugins-directory }}
