@@ -1,0 +1,32 @@
+{
+  "name": "plugin-name",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/wppunk/WPPlugin.git",
+  "author": "Maxym Denysenko <mdenisenko95@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.30.2",
+    "@wordpress/eslint-plugin": "^7.1.0",
+    "autoprefixer": "^9.8.6",
+    "encore": "^0.0.30-beta",
+    "eslint": "^7.7.0",
+    "eslint-loader": "^3.0.0",
+    "pkg": "^4.4.9",
+    "postcss-loader": "^3.0.0",
+    "postcss-simple-vars": "^5.0.2",
+    "webpack-notifier": "^1.8.0"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ],
+  "dependencies": {},
+  "scripts": {
+    "build": "encore production",
+    "dev": "encore dev",
+    "dev-watch": "encore dev --watch"
+  }
+}

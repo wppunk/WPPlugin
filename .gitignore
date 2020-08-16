@@ -1,3 +1,5 @@
 /.vendor/
 /.idea/
 /.codception/_config/params.local.php
+/node_modules/
+/assets/
