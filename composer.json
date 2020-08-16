@@ -1,51 +1,61 @@
 {
-	"name": "wppunk/plugin-name",
-	"description": "Plugin description",
-	"license": "GNU",
-	"authors": [
-		{
-			"name": "WPPunk",
-			"email": "i@wp-punk.com"
-		}
-	],
-	"config": {
-		"vendor-dir": ".vendor",
-		"preferred-install": "dist",
-		"platform": {
-			"php": "7.4"
-		}
-	},
-	"repositories": [
-		{
-			"type": "path",
-			"url": ".packages/composer/phpcs-ruleset"
-		}
-	],
-	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-		"wp-coding-standards/wpcs": "^2.3",
-		"plugin-name/phpcs-ruleset": "^1.0.0",
-		"phpcompatibility/php-compatibility": "^9.3",
-		"brain/monkey": "^2.4",
-		"codeception/codeception": "^4.1",
-		"codeception/aspect-mock": "2.1",
-		"codeception/module-asserts": "^1.2",
-		"codeception/module-db": "^1.0",
-		"codeception/module-webdriver": "^1.1",
-		"lucatume/wp-browser": "^2.6",
-        "goaop/framework": "2.1"
-	},
-	"autoload": {
-		"psr-4": {
-			"PluginName\\": "src/"
-		}
-	},
-	"extra": {
-		"phpcodesniffer-search-depth": 1
-	},
-	"scripts": {
-		"acceptance": "codecept clean && codecept run acceptance",
-		"unit": "codecept clean && codecept run unit",
-		"cs": "phpcs --standard=PluginName ."
-	}
+  "name": "wppunk/plugin-name",
+  "description": "Plugin description",
+  "license": "GNU",
+  "authors": [
+    {
+      "name": "WPPunk",
+      "email": "i@wp-punk.com"
+    }
+  ],
+  "config": {
+    "vendor-dir": ".vendor",
+    "preferred-install": "dist",
+    "platform": {
+      "php": "7.4"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": ".packages/composer/phpcs-ruleset"
+    }
+  ],
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+    "wp-coding-standards/wpcs": "^2.3",
+    "plugin-name/phpcs-ruleset": "^1.0.0",
+    "phpcompatibility/php-compatibility": "^9.3",
+    "brain/monkey": "^2.4",
+    "codeception/codeception": "^4.1",
+    "codeception/aspect-mock": "2.1",
+    "codeception/module-asserts": "^1.2",
+    "codeception/module-db": "^1.0",
+    "codeception/module-webdriver": "^1.1",
+    "lucatume/wp-browser": "^2.6",
+    "goaop/framework": "2.1",
+    "brainmaestro/composer-git-hooks": "^2.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "PluginName\\": "src/"
+    }
+  },
+  "extra": {
+    "phpcodesniffer-search-depth": 1,
+    "hooks": {
+      "pre-commit": [
+        "composer cs"
+      ],
+      "pre-push": [
+        "composer cs",
+        "composer unit"
+      ]
+    }
+  },
+  "scripts": {
+    "acceptance": "codecept clean && codecept run acceptance",
+    "unit": "codecept clean && codecept run unit",
+    "cs": "phpcs --standard=PluginName ."
+  }
 }
