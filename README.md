@@ -44,9 +44,6 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 │   └── workflows/                  # → Workflows.
 │       ├── plugin-name.conf        # → Config for the server.
 │       └── plugin-name.yml         # → Actions for GitHub.
-├── .packages/                      # → Custom packages.
-│   └── composer/                   # → Custom packages for the composer.
-│       └── phpcs-ruleset/          # → Custom PHP Coding Standards.
 ├── .vendor/                        # → Composer packages (never edit).
 ├── assets/                         # → Assets directory.
 │   ├── build/                      # → Assets build directory.
@@ -67,6 +64,7 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 ├── composer.lock                   # → Composer lock file (never edit).
 ├── LICENSE                         # → License file.
 ├── package.json                    # → JS dependencies and scripts.
+├── phpcs.xml                       # → Custom PHP Coding Standards.
 ├── plugin-name.php                 # → Bootstrap plugin file.
 ├── postcss.config.js               # → PostCSS config file.
 ├── readme.txt                      # → Readme TXT for the wp.org repository.

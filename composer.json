@@ -15,16 +15,9 @@
       "php": "7.4"
     }
   },
-  "repositories": [
-    {
-      "type": "path",
-      "url": ".packages/composer/phpcs-ruleset"
-    }
-  ],
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "wp-coding-standards/wpcs": "^2.3",
-    "plugin-name/phpcs-ruleset": "^1.0.0",
     "phpcompatibility/php-compatibility": "^9.3",
     "brain/monkey": "^2.4",
     "codeception/codeception": "^4.1",
@@ -56,6 +49,6 @@
   "scripts": {
     "acceptance": "codecept clean && codecept run acceptance",
     "unit": "codecept clean && codecept run unit",
-    "cs": "phpcs --standard=PluginName ."
+    "cs": "phpcs --standard=phpcs.xml ."
   }
 }
