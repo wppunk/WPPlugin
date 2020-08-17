@@ -18,6 +18,10 @@ if ( in_array( 'unit', $argv, true ) ) {
 	return [];
 }
 
+if ( in_array( 'clean', $argv, true ) ) {
+	return [];
+}
+
 $config = '.codeception/_config/params.github-actions.php';
 if ( in_array( 'github-actions', $argv, true ) && file_exists( $config ) ) {
 	return include $config;
