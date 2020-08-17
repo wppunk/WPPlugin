@@ -1,0 +1,5 @@
+[core]
+  #MANDATORY
+
+    #Use true instead of input in Windows environments
+    autocrlf = input
