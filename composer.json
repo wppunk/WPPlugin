@@ -49,6 +49,6 @@
   "scripts": {
     "acceptance": "codecept clean && codecept run acceptance",
     "unit": "codecept clean && codecept run unit",
-    "cs": "phpcs --standard=phpcs.xml ."
+    "cs": "phpcs --standard=.phpcs.xml ."
   }
 }

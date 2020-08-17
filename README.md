@@ -83,7 +83,7 @@ We use PSR-4 and composer autoload for PSR-4. You can find it in `composer.json`
 
 We use a custom coding standard based on [WordPress Coding Standard](https://github.com/WordPress/WordPress-Coding-Standards). We disabled rules for the naming of WordPress files for using PSR-4 autoload. Also, we have a [feature](https://github.com/PHPCompatibility/PHPCompatibilityWP), which can allow testing your code using different PHP environments.
 
-Custom PHPCS your can find in the `.packages/composer/phpcs-ruleset/PluginName/ruleset.xml`.
+Custom PHPCS your can find in the `.phpcs.xml`.
 
 Your can check PHPCS using a CLI:
 ```
