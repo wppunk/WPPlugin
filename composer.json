@@ -26,7 +26,8 @@
     "lucatume/wp-browser": "^2.6",
     "goaop/framework": "2.1.2",
     "brainmaestro/composer-git-hooks": "^2.8",
-    "codeception/module-db": "^1.0"
+    "codeception/module-db": "^1.0",
+    "codeception/module-webdriver": "^1.1"
   },
   "autoload": {
     "psr-4": {
