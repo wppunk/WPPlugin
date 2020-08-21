@@ -1,11 +1,11 @@
-import PluginName from '../../../assets/src/js/front/main/main.js';
+import Main from '../../../assets/src/js/front/main/main.js';
 
-describe( 'Init PluginName', () => {
-	it( 'console.log the text "PluginName was started"', () => {
+describe( 'Main constructor', () => {
+	it( 'console.log the text "Main was started"', () => {
 		const consoleSpy = jest.spyOn( console, 'log' );
 
-		PluginName.init();
+		new Main();
 
-		expect( consoleSpy ).toHaveBeenCalledWith( 'PluginName was started' );
+		expect( consoleSpy ).toHaveBeenCalledWith( 'Main was started' );
 	} );
 } );

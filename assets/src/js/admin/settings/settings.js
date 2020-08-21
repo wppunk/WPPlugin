@@ -1,16 +1,18 @@
-/* global jQuery */
+/**
+ * Class Settings.
+ *
+ * @since {VERSION}
+ */
+class Settings {
+	/**
+	 * Settings constructor.
+	 *
+	 * @since {VERSION}
+	 */
+	constructor() {
+		// eslint-disable-next-line no-console
+		console.log( 'Settings was started' );
+	}
+}
 
-'use strict';
-const PluginNameSettings =
-	window.PluginNameSettings ||
-	// eslint-disable-next-line no-unused-vars
-	( function ( document, window, $ ) {
-		return {
-			init() {
-				// eslint-disable-next-line no-console
-				console.log( 'PluginNameSettings was started' );
-			},
-		};
-	} )( document, window, jQuery );
-
-module.exports = PluginNameSettings;
+export default Settings;

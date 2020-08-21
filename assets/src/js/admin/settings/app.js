@@ -1,3 +1,5 @@
-import PluginNameSettings from './settings';
+import Settings from './settings';
 
-PluginNameSettings.init();
+document.addEventListener( 'DOMContentLoaded', () => {
+	Settings.init();
+} );

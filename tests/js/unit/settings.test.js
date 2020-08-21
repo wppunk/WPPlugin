@@ -1,11 +1,11 @@
-import PluginNameSettings from '../../../assets/src/js/admin/settings/settings.js';
+import Settings from '../../../assets/src/js/admin/settings/settings.js';
 
-describe( 'Init PluginNameSettings', () => {
-	it( 'console.log the text "PluginNameSettings was started"', () => {
+describe( 'Settings constructor', () => {
+	it( 'console.log the text "Settings was started"', () => {
 		const consoleSpy = jest.spyOn( console, 'log' );
 
-		PluginNameSettings.init();
+		new Settings();
 
-		expect( consoleSpy ).toHaveBeenCalledWith( 'PluginNameSettings was started' );
+		expect( consoleSpy ).toHaveBeenCalledWith( 'Settings was started' );
 	} );
 } );

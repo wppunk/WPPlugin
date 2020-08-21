@@ -1,16 +1,18 @@
-/* global jQuery */
+/**
+ * Class Main.
+ *
+ * @since {VERSION}
+ */
+class Main {
+	/**
+	 * Main constructor.
+	 *
+	 * @since {VERSION}
+	 */
+	constructor() {
+		// eslint-disable-next-line no-console
+		console.log( 'Main was started' );
+	}
+}
 
-'use strict';
-const PluginName =
-	window.PluginName ||
-	// eslint-disable-next-line no-unused-vars
-	( function ( document, window, $ ) {
-		return {
-			init() {
-				// eslint-disable-next-line no-console
-				console.log( 'PluginName was started' );
-			},
-		};
-	} )( document, window, jQuery );
-
-module.exports = PluginName;
+export default Main;

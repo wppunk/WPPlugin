@@ -1,3 +1,5 @@
-import PluginNameSettings from './main';
+import Main from './main';
 
-PluginNameSettings.init();
+document.addEventListener( 'DOMContentLoaded', () => {
+	new Main();
+} );
