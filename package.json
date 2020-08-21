@@ -5,6 +5,11 @@
   "repository": "https://github.com/wppunk/WPPlugin.git",
   "author": "Maxym Denysenko <mdenisenko95@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "jest": "^26.4.0",
+    "jest-fetch-mock": "^3.0.3"
+  },
   "devDependencies": {
     "@symfony/webpack-encore": "^0.30.2",
     "@wordpress/eslint-plugin": "^7.1.0",
@@ -29,11 +34,39 @@
       "pre-commit": "yarn cs"
     }
   },
-  "dependencies": {},
+  "jest": {
+    "automock": false,
+    "verbose": true,
+    "testURL": "http://domain.tld/",
+    "setupFiles": [
+      "<rootDir>/tests/js/setupTests.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transform": {
+      "\\.[tj]sx?$": [
+        "babel-jest",
+        {
+          "presets": [
+            [
+              "babel-preset-env",
+              {
+                "targets": {
+                  "node": 10
+                }
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  },
   "scripts": {
     "cs": "eslint assets/src/js/**/*.js",
     "build": "encore production",
     "dev": "encore dev",
-    "dev-watch": "encore dev --watch"
+    "dev-watch": "encore dev --watch",
+    "unit": "jest"
   }
 }

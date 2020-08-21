@@ -59,12 +59,14 @@ jobs:
             -   name: Validate Coding Standard
                 working-directory: ${{ env.wp-plugins-directory }}
                 run: |
-                    .vendor/bin/composer cs
+                    composer cs
                     yarn cs
 
             -   name: Run unit tests
                 working-directory: ${{ env.wp-plugins-directory }}
-                run: .vendor/bin/composer unit
+                run: |
+                    composer unit
+                    yarn unit
 
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
@@ -126,7 +128,7 @@ jobs:
 
             -   name: Run Acceptance Tests
                 working-directory: ${{ env.wp-plugins-directory }}
-                run: .vendor/bin/composer acceptance -- --env github-actions
+                run: composer acceptance -- --env github-actions
 
             -   name: Archive Codeception output
                 uses: actions/upload-artifact@v1

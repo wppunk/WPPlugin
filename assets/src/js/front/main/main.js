@@ -1,8 +1,8 @@
 /* global jQuery */
 
 'use strict';
-const PluginNameSettings =
-	window.PluginNameSettings ||
+const PluginName =
+	window.PluginName ||
 	// eslint-disable-next-line no-unused-vars
 	( function ( document, window, $ ) {
 		return {
@@ -13,4 +13,4 @@ const PluginNameSettings =
 		};
 	} )( document, window, jQuery );
 
-PluginNameSettings.init();
+module.exports = PluginName;

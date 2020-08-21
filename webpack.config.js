@@ -6,8 +6,8 @@ if ( ! Encore.isRuntimeEnvironmentConfigured() ) {
 
 Encore.setOutputPath( 'assets/build' )
 	.setPublicPath( '/' )
-	.addEntry( 'js/admin/settings', './assets/src/js/settings.js' )
-	.addEntry( 'js/main', './assets/src/js/main.js' )
+	.addEntry( 'js/admin/settings', './assets/src/js/admin/settings/app.js' )
+	.addEntry( 'js/main', './assets/src/js/front/main/app.js' )
 	.addStyleEntry(
 		'css/admin/settings',
 		'./assets/src/pcss/admin/settings.pcss'
