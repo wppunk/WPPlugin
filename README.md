@@ -16,7 +16,6 @@ PluginName                                  => YourAwesomePlugin
 plugin-name                                 => your-awesome-plugin
 Plugin Name                                 => Your Awesome Plugin
 plugin-name.php                             => your-awesome-plugin.php
-.packages/composer/phpcs-ruleset/PluginName => .packages/composer/phpcs-ruleset/YourAwesomePlugin
 .github/workflows/plugin-name.yml           => .github/workflows/your-awesome-plugin.yml
 .github/workflows/plugin-name.conf          => .github/workflows/your-awesome-plugin.conf
 ```
