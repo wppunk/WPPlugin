@@ -2,11 +2,11 @@
 /**
  * Uninstall PluginName
  *
- * @since               {VERSION}
- * @link                https://github.com/wppunk/WPPlugin
- * @license             GPLv2 or later
- * @package             PluginName
- * @author              WPPunk
+ * @since   {VERSION}
+ * @link    {URL}
+ * @license GPLv2 or later
+ * @package PluginName
+ * @author  {AUTHOR}
  */
 
 // Exit if accessed directly.

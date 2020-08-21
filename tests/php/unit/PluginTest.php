@@ -3,10 +3,10 @@
  * PluginTest
  *
  * @since   {VERSION}
- * @link    https://github.com/wppunk/WPPlugin
+ * @link    {URL}
  * @license GPLv2 or later
  * @package PluginName
- * @author  WPPunk
+ * @author  {AUTHOR}
  */
 
 namespace PluginNameUnitTests;
