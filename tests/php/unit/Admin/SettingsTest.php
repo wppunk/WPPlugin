@@ -64,7 +64,7 @@ class SettingsTest extends TestCase {
 		expect( 'wp_enqueue_style' )
 			->with(
 				'plugin-name-settings',
-				PLUGIN_NAME_URL . 'assets/css/settings.css',
+				PLUGIN_NAME_URL . 'assets/css/build/settings.css',
 				[],
 				Plugin::VERSION,
 				'all'
@@ -97,7 +97,7 @@ class SettingsTest extends TestCase {
 		expect( 'wp_enqueue_script' )
 			->with(
 				'plugin-name-settings',
-				PLUGIN_NAME_URL . 'assets/js/settings.js',
+				PLUGIN_NAME_URL . 'assets/js/build/settings.js',
 				[ 'jquery' ],
 				Plugin::VERSION,
 				true

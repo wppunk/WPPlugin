@@ -52,7 +52,7 @@ class FrontTest extends TestCase {
 		expect( 'wp_enqueue_style' )
 			->with(
 				'plugin-name',
-				PLUGIN_NAME_URL . 'assets/css/main.css',
+				PLUGIN_NAME_URL . 'assets/css/build/main.css',
 				[],
 				Plugin::VERSION,
 				'all'
@@ -74,7 +74,7 @@ class FrontTest extends TestCase {
 		expect( 'wp_enqueue_script' )
 			->with(
 				'plugin-name',
-				PLUGIN_NAME_URL . 'assets/js/main.js',
+				PLUGIN_NAME_URL . 'assets/js/build/main.js',
 				[ 'jquery' ],
 				Plugin::VERSION,
 				true

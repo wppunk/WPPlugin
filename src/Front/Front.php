@@ -41,7 +41,7 @@ class Front {
 
 		wp_enqueue_style(
 			'plugin-name',
-			PLUGIN_NAME_URL . 'assets/css/main.css',
+			PLUGIN_NAME_URL . 'assets/css/build/main.css',
 			[],
 			Plugin::VERSION,
 			'all'
@@ -57,7 +57,7 @@ class Front {
 
 		wp_enqueue_script(
 			'plugin-name',
-			PLUGIN_NAME_URL . 'assets/js/main.js',
+			PLUGIN_NAME_URL . 'assets/js/build/main.js',
 			[],
 			Plugin::VERSION,
 			true

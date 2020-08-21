@@ -47,7 +47,7 @@ class Settings {
 
 		wp_enqueue_style(
 			'plugin-name-settings',
-			PLUGIN_NAME_URL . 'assets/css/settings.css',
+			PLUGIN_NAME_URL . 'assets/css/build/settings.css',
 			[],
 			Plugin::VERSION,
 			'all'
@@ -68,7 +68,7 @@ class Settings {
 
 		wp_enqueue_script(
 			'plugin-name-settings',
-			PLUGIN_NAME_URL . 'assets/js/settings.js',
+			PLUGIN_NAME_URL . 'assets/js/build/settings.js',
 			[ 'jquery' ],
 			Plugin::VERSION,
 			true
