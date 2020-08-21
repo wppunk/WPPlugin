@@ -38,11 +38,10 @@ class Front {
 	 * @since {VERSION}
 	 */
 	public function enqueue_styles() {
-		$min = Plugin::get_assets_suffix();
 
 		wp_enqueue_style(
 			'plugin-name',
-			PLUGIN_NAME_URL . "assets/css/main$min.css",
+			PLUGIN_NAME_URL . 'assets/css/main.css',
 			[],
 			Plugin::VERSION,
 			'all'
@@ -55,11 +54,10 @@ class Front {
 	 * @since {VERSION}
 	 */
 	public function enqueue_scripts() {
-		$min = Plugin::get_assets_suffix();
 
 		wp_enqueue_script(
 			'plugin-name',
-			PLUGIN_NAME_URL . "assets/js/main$min.js",
+			PLUGIN_NAME_URL . 'assets/js/main.js',
 			[],
 			Plugin::VERSION,
 			true

@@ -45,11 +45,9 @@ class Settings {
 			return;
 		}
 
-		$min = Plugin::get_assets_suffix();
-
 		wp_enqueue_style(
 			'plugin-name-settings',
-			PLUGIN_NAME_URL . "assets/css/settings$min.css",
+			PLUGIN_NAME_URL . 'assets/css/settings.css',
 			[],
 			Plugin::VERSION,
 			'all'
@@ -68,11 +66,9 @@ class Settings {
 			return;
 		}
 
-		$min = Plugin::get_assets_suffix();
-
 		wp_enqueue_script(
 			'plugin-name-settings',
-			PLUGIN_NAME_URL . "assets/js/settings$min.js",
+			PLUGIN_NAME_URL . 'assets/js/settings.js',
 			[ 'jquery' ],
 			Plugin::VERSION,
 			true

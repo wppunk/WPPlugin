@@ -37,17 +37,6 @@ class Plugin {
 	const VERSION = '{VERSION}';
 
 	/**
-	 * Get suffix for assets URLs
-	 *
-	 * @since {VERSION}
-	 *
-	 * @return string
-	 */
-	public static function get_assets_suffix(): string {
-		return constant( 'PLUGIN_NAME_DEBUG' ) ? '.min' : '';
-	}
-
-	/**
 	 * Run plugin
 	 *
 	 * @since {VERSION}
