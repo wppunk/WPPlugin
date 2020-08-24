@@ -1,14 +1,11 @@
 {
   "name": "plugin-name",
-  "version": "1.0.0",
+  "version": "{VERSION}",
   "main": "index.js",
-  "repository": "https://github.com/wppunk/WPPlugin.git",
-  "author": "Maxym Denysenko <mdenisenko95@gmail.com>",
+  "repository": "{URL}",
+  "author": "{AUTHOR} <{AUTHOR_URL}>",
   "license": "MIT",
   "dependencies": {
-    "babel-preset-env": "^1.7.0",
-    "jest": "^26.4.0",
-    "jest-fetch-mock": "^3.0.3"
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^0.30.2",
@@ -21,7 +18,10 @@
     "pkg": "^4.4.9",
     "postcss-loader": "^3.0.0",
     "postcss-simple-vars": "^5.0.2",
-    "webpack-notifier": "^1.8.0"
+    "webpack-notifier": "^1.8.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^26.4.0",
+    "jest-fetch-mock": "^3.0.3"
   },
   "browserslist": [
     "> 0.5%",
@@ -39,7 +39,7 @@
     "verbose": true,
     "testURL": "http://domain.tld/",
     "setupFiles": [
-      "<rootDir>/tests/js/setupTests.js"
+      "<rootDir>/.tests/js/setupTests.js"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/"
@@ -64,9 +64,9 @@
   },
   "scripts": {
     "cs": "eslint assets/src/js/**/*.js",
-    "build": "encore production",
-    "dev": "encore dev",
-    "dev-watch": "encore dev --watch",
+    "build": "encore production --config='.webpack.config.js'",
+    "dev": "encore dev --config='.webpack.config.js'",
+    "dev-watch": "encore dev --watch --config='.webpack.config.js'",
     "unit": "jest"
   }
 }
