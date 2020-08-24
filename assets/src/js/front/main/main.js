@@ -3,7 +3,7 @@
  *
  * @since {VERSION}
  */
-class Main {
+export class Main {
 	/**
 	 * Main constructor.
 	 *
@@ -14,5 +14,3 @@ class Main {
 		console.log( 'Main was started' );
 	}
 }
-
-export default Main;

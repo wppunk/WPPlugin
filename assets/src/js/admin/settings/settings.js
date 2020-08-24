@@ -3,7 +3,7 @@
  *
  * @since {VERSION}
  */
-class Settings {
+export class Settings {
 	/**
 	 * Settings constructor.
 	 *
@@ -14,5 +14,3 @@ class Settings {
 		console.log( 'Settings was started' );
 	}
 }
-
-export default Settings;

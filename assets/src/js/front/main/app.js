@@ -1,4 +1,4 @@
-import Main from './main';
+import { Main } from './main';
 
 document.addEventListener( 'DOMContentLoaded', () => {
 	new Main();
