@@ -12,8 +12,6 @@
 namespace PluginNameTests;
 
 use Mockery;
-use AspectMock\Test;
-use AspectMock\Core\Registry;
 
 use function Brain\Monkey\setUp;
 use function Brain\Monkey\tearDown;
@@ -45,9 +43,6 @@ abstract class TestCase extends \Codeception\PHPUnit\TestCase {
 	protected function tearDown(): void {
 		tearDown();
 		Mockery::close();
-		if ( Registry::$mocker ) {
-			Test::clean();
-		}
 		parent::tearDown();
 	}
 

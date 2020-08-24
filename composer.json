@@ -15,19 +15,23 @@
       "php": "7.4"
     }
   },
+  "require": {
+    "symfony/dependency-injection": "^4.0",
+    "symfony/config": "^4.0",
+    "symfony/filesystem": "3.4.9",
+    "symfony/process": "4.4.9"
+  },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "wp-coding-standards/wpcs": "^2.3",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "phpcompatibility/php-compatibility": "^9.3",
-    "brain/monkey": "^2.4",
     "codeception/codeception": "^4.1",
-    "codeception/aspect-mock": "2.1",
     "codeception/module-asserts": "^1.2",
-    "lucatume/wp-browser": "^2.6",
-    "goaop/framework": "2.1.2",
-    "brainmaestro/composer-git-hooks": "^2.8",
     "codeception/module-db": "^1.0",
-    "codeception/module-webdriver": "^1.1"
+    "codeception/module-webdriver": "^1.1",
+    "brain/monkey": "^2.4",
+    "brainmaestro/composer-git-hooks": "^2.8",
+    "lucatume/wp-browser": "^2.6"
   },
   "autoload": {
     "psr-4": {

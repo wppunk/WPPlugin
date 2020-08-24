@@ -11,12 +11,8 @@
 
 namespace PluginNameUnitTests;
 
-use AspectMock\Test;
 use PluginName\Plugin;
-use PluginName\Front\Front;
 use PluginNameTests\TestCase;
-use PluginName\Admin\Settings;
-use tad\FunctionMocker\FunctionMocker;
 
 use function Brain\Monkey\Functions\expect;
 
@@ -39,12 +35,20 @@ class PluginTest extends TestCase {
 			->withNoArgs()
 			->once()
 			->andReturn( true );
-		$settings = Test::double( Settings::class, [ 'hooks' ] );
-		$plugin   = new Plugin();
+		$settings = \Mockery::mock( '\PluginName\Admin\Settings' );
+		$settings
+			->shouldReceive( 'hooks' )
+			->withNoArgs()
+			->once();
+		$container_builder = \Mockery::mock( '\Symfony\Component\DependencyInjection\ContainerBuilder' );
+		$container_builder
+			->shouldReceive( 'get' )
+			->with( 'settings' )
+			->once()
+			->andReturn( $settings );
+		$plugin = new Plugin( $container_builder );
 
 		$plugin->run();
-
-		$settings->verifyInvokedOnce( 'hooks' );
 	}
 
 	/**
@@ -57,11 +61,20 @@ class PluginTest extends TestCase {
 			->withNoArgs()
 			->once()
 			->andReturn( false );
-		$front  = Test::double( Front::class, [ 'hooks' ] );
-		$plugin = new Plugin();
+		$front = \Mockery::mock( '\PluginName\Front\Front' );
+		$front
+			->shouldReceive( 'hooks' )
+			->withNoArgs()
+			->once();
+		$container_builder = \Mockery::mock( '\Symfony\Component\DependencyInjection\ContainerBuilder' );
+		$container_builder
+			->shouldReceive( 'get' )
+			->with( 'front' )
+			->once()
+			->andReturn( $front );
+		$plugin = new Plugin( $container_builder );
 
 		$plugin->run();
-
-		$front->verifyInvokedOnce( 'hooks' );
 	}
+
 }

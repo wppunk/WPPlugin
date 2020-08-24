@@ -11,8 +11,7 @@
 
 namespace PluginName;
 
-use PluginName\Front\Front;
-use PluginName\Admin\Settings;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Class Plugin
@@ -32,9 +31,26 @@ class Plugin {
 	/**
 	 * Plugin version
 	 *
-	 * @sicne {VERSION}
+	 * @since {VERSION}
 	 */
 	const VERSION = '{VERSION}';
+	/**
+	 * Dependency Injection Container.
+	 *
+	 * @since {VERSION}
+	 *
+	 * @var ContainerBuilder
+	 */
+	private $container_builder;
+
+	/**
+	 * Plugin constructor.
+	 *
+	 * @param ContainerBuilder $container_builder Dependency Injection Container.
+	 */
+	public function __construct( ContainerBuilder $container_builder ) {
+		$this->container_builder = $container_builder;
+	}
 
 	/**
 	 * Run plugin
@@ -55,7 +71,7 @@ class Plugin {
 	 * @since {VERSION}
 	 */
 	private function run_admin() {
-		( new Settings() )->hooks();
+		( $this->container_builder->get( 'settings' ) )->hooks();
 	}
 
 	/**
@@ -64,7 +80,7 @@ class Plugin {
 	 * @since {VERSION}
 	 */
 	private function run_front() {
-		( new Front() )->hooks();
+		( $this->container_builder->get( 'front' ) )->hooks();
 	}
 
 }
