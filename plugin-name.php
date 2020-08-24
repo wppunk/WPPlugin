@@ -4,9 +4,9 @@
  *
  * Plugin Name: Plugin Name
  * Description: The plugin adds information about the games to the site posts.
- * Version:     1.0.0
+ * Version:     {VERSION}
  * Author:      {AUTHOR}
- * Author URI:  https://profiles.wordpress.org/wppunk/
+ * Author URI:  {AUTHOR_URL}
  * License:     GPLv2 or later
  * Text Domain: plugin-name
  *
