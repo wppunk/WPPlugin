@@ -47,8 +47,8 @@
     }
   },
   "scripts": {
-    "acceptance": "codecept clean && codecept run acceptance",
-    "unit": "codecept clean && codecept run unit",
+    "acceptance": "codecept run acceptance -c .codeception.yml",
+    "unit": "codecept run unit -c .codeception.yml",
     "cs": "phpcs --standard=.phpcs.xml ."
   }
 }

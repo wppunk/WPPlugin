@@ -1,5 +1,5 @@
 paths:
-    tests: tests/php
+    tests: .tests/php
     output: .codeception/_output
     data: .codeception/_data
     support: .codeception/_support
