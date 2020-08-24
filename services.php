@@ -20,5 +20,4 @@ return function ( ContainerConfigurator $configurator ) {
 	$services = $configurator->services();
 	$services->set( 'settings', 'PluginName\Admin\Settings' );
 	$services->set( 'front', 'PluginName\Front\Front' );
-	$services->set( 'plugin', 'PluginName\Plugin' )->args( [ 'settings', 'front' ] );
 };
