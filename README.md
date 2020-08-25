@@ -24,8 +24,8 @@ plugin-name.php                             => your-awesome-plugin.php
 
 Make sure all dependencies have been installed before moving on:
 
-- WordPress >= 5.4
-- PHP >= 7.2.0 (You can easy to downgrade it)
+- WordPress >= 5.5
+- PHP >= 7.2.5 (You can easy to downgrade it)
 - Composer
 - Node.js >= 14.8
 - Yarn
@@ -125,6 +125,19 @@ The [Dependency Injection](https://symfony.com/doc/current/components/dependency
 
 All dependencies described in `dependencies/service.php` file.
 
+You can disable plugin hooks very easily using a DIC. Find the id of the current class in the `dependencies/service.php` file as `$services->set( 'front', 'PluginName\Front\Front');` where `front` is id for the class `PluginName\Front\Front`. Example just disabling frontend assets:
+```
+function remove_plugin_name_actions( $instance ) {
+    $front = $instance->get_service( 'front' );
+    if ( ! $front ) {
+        return;
+    }
+    remove_action( 'wp_enqueue_scripts', [ $front, 'enqueue_styles' ] );
+    remove_action( 'wp_enqueue_scripts', [ $front, 'enqueue_scripts' ] );
+}
+
+add_action( 'plugin_name_init', 'remove_plugin_name_actions' );
+```
 ## Automated testing
 
 We are using for automated testing a Codeception library runs all types of PHP tests.
