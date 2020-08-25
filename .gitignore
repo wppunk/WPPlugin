@@ -1,7 +1,7 @@
-/.vendor/
 /.idea/
 /.codeception/_cache/
 /.codeception/_output/
 /.codception/_config/params.local.php
+/assets/build/
 /node_modules/
-/assets/build
+/vendor/
