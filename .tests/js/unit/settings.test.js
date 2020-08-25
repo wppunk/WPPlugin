@@ -1,4 +1,4 @@
-import { Settings } from '../../../assets/src/js/admin/settings/settings.js';
+import { Settings } from '../../../assets/.src/js/admin/settings/settings.js';
 
 describe( 'Settings constructor', () => {
 	it( 'console.log the text "Settings was started"', () => {

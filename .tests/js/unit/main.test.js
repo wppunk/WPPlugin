@@ -1,4 +1,4 @@
-import { Main } from '../../../assets/src/js/front/main/main.js';
+import { Main } from '../../../assets/.src/js/front/main/main.js';
 
 describe( 'Main constructor', () => {
 	it( 'console.log the text "Main was started"', () => {
