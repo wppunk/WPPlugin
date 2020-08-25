@@ -24,11 +24,27 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 if ( ! defined( 'PLUGIN_NAME_DEBUG' ) ) {
+	/**
+	 * Enable plugin debug mod.
+	 */
 	define( 'PLUGIN_NAME_DEBUG', false );
 }
+/**
+ * Path to the plugin root directory.
+ */
 define( 'PLUGIN_NAME_PATH', plugin_dir_path( __FILE__ ) );
+/**
+ * Url to the plugin root directory.
+ */
 define( 'PLUGIN_NAME_URL', plugin_dir_url( __FILE__ ) );
 
+/**
+ * Run plugin function.
+ *
+ * @since {VERSION}
+ *
+ * @throws Exception If something went wrong.
+ */
 function plugin_name_run() {
 	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
@@ -41,4 +57,4 @@ function plugin_name_run() {
 	do_action( 'plugin_name_init', $plugin_name );
 }
 
-add_action( 'wpforms_loaded', 'run_plugin_name' );
+add_action( 'plugins_loaded', 'run_plugin_name' );
