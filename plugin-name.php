@@ -45,7 +45,7 @@ define( 'PLUGIN_NAME_URL', plugin_dir_url( __FILE__ ) );
  *
  * @throws Exception If something went wrong.
  */
-function plugin_name_run() {
+function run_plugin_name() {
 	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 	$container_builder = new ContainerBuilder();
