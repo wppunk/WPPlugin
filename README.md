@@ -43,32 +43,38 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 │   └── workflows/                  # → Workflows.
 │       ├── plugin-name.conf        # → Config for the server.
 │       └── plugin-name.yml         # → Actions for GitHub.
-├── .vendor/                        # → Composer packages (never edit).
-├── assets/                         # → Assets directory.
-│   ├── build/                      # → Assets build directory.
-│   └── src/                        # → Assets source directory.
-├── node_modules/                   # → JS packages (never edit). 
-├── templates/                      # → Templates for plugin views.
-├── tests/                          # → Tests.
+├── .tests/                         # → Tests.
 │   └── php                         # → PHP tests.
 │       ├── acceptance              # → PHP Acceptance tests.
 │       ├── unit                    # → PHP Unit tests.
 │       │   └── _bootstrap.php      # → Bootstrap file for PHP unit tests.
 │       ├── acceptance.suite.yml    # → Config file for the acceptance tests.
 │       └── unit.suite.yml          # → Config file for the unit tests.
+├── assets/                         # → Assets directory.
+│   ├── build/                      # → Assets build directory.
+│   └── src/                        # → Assets source directory.
+├── dependencies                    # → Directory for DIC configs.
+│   └── services.php                # → PHP congig for DIC.
+├── node_modules/                   # → JS packages (never edit).
+├── src/                            # → PHP directory. 
+├── templates/                      # → Templates for plugin views.
+├── vendor/                         # → Composer packages (never edit).
+├── .codeception.yml                # → Main codeception config.
 ├── .eslintrc                       # → JS Coding Standards.
+├── .gitconfig                      # → Config for git.
+├── .gitignore                      # → Git ignore file.
+├── .phpcs.xml                      # → Custom PHP Coding Standards.
+├── .postcssrc.js                   # → PostCSS config file.
+├── .webpack.config.js              # → Encore configuration file.
 ├── CHANGELOG.md                    # → Changelog file for GH.
-├── codeception.yml                 # → Main codeception config.
 ├── composer.json                   # → Composer dependencies and scripts.
 ├── composer.lock                   # → Composer lock file (never edit).
 ├── LICENSE                         # → License file.
 ├── package.json                    # → JS dependencies and scripts.
-├── phpcs.xml                       # → Custom PHP Coding Standards.
 ├── plugin-name.php                 # → Bootstrap plugin file.
-├── postcss.config.js               # → PostCSS config file.
+├── README.md                       # → Readme MD for GitHub repository.
 ├── readme.txt                      # → Readme TXT for the wp.org repository.
 ├── uninstall.php                   # → Uninstall file.
-├── webpack.config.js               # → Encore configuration file.
 └── yarn.lock                       # → Yarn lock file (never edit).
 ```
 
@@ -124,9 +130,9 @@ For running use a CLI command:
 composer unit
 ```
 
-- Main configuration file `tests/php/unit.suite.yml`
-- Unit tests inside `tests/php/unit/*` folder.
-- Bootstrap file `tests/php/unit/_bootstrap.php`
+- Main configuration file `.tests/php/unit.suite.yml`
+- Unit tests inside `.tests/php/unit/*` folder.
+- Bootstrap file `.tests/php/unit/_bootstrap.php`
 - Each filename for test class must have a suffix on `*Test.php`.
 - Each test class must extend a `PluginNameUnitTests\TestCase` class.
 - You can also add some code to `PluginNameUnitTests\TestCase.php`
@@ -167,10 +173,25 @@ For running use a CLI command:
 composer acceptance
 ```
 
-- Main configuration file `tests/php/acceptance.suite.yml`
-- Unit tests inside `tests/php/acceptace/*` folder.
+- Main configuration file `.tests/php/acceptance.suite.yml`
+- Unit tests inside `.tests/php/acceptace/*` folder.
 - Each filename for test class must have a suffix on `*Cest.php`.
 - Each test method must have prefix `test_`
 - Each test method must include `AcceptanceTester` as argument.
 - You can add some methods to AcceptanceTester in `.codeception/_support/AcceptanceTests.php`.
-- Additional files for autoloading in tests running you can add to `.codeception/_support/*` folder.
+- Additional files for autoload in tests running you can add to `.codeception/_support/*` folder.
+
+### JS unit tests
+
+For running use a CLI command:
+```
+yarn unit
+```
+
+- Main configuration inside `.tests/js/package.json` in directory `jest`
+- Unit tests inside `.tests/js/unit/*` folder.
+- Bootstrap file `.tests/js/setupTests.js`
+- Each filename for test class must have a suffix on `*.test.js`.
+- Just import your class for testing and write tests.
+
+Also, unit tests will be checked on a push to repository action and inside the GH Actions pipeline.
