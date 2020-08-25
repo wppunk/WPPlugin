@@ -22,7 +22,10 @@ Encore.setOutputPath( 'assets/build' )
 	.configureLoaderRule( 'css', ( loaderRule ) => {
 		loaderRule.test = /\.(css|p(ost)?css)$/;
 	} )
-	.copyFiles( { from: './assets/.src/img' } )
+	.copyFiles( {
+		from: './assets/.src/img',
+		to: './img/[path][name].[ext]'
+	} )
 	.enableEslintLoader();
 
 module.exports = Encore.getWebpackConfig();
