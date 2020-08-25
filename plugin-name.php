@@ -17,7 +17,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 use PluginName\Plugin;
 use Symfony\Component\Config\FileLocator;
@@ -30,9 +29,16 @@ if ( ! defined( 'PLUGIN_NAME_DEBUG' ) ) {
 define( 'PLUGIN_NAME_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PLUGIN_NAME_URL', plugin_dir_url( __FILE__ ) );
 
-$container_builder = new ContainerBuilder();
-$loader            = new PhpFileLoader( $container_builder, new FileLocator( __DIR__ ) );
-$loader->load( PLUGIN_NAME_PATH . 'dependencies/services.php' );
-$plugin_name = new Plugin( $container_builder );
-$plugin_name->run();
-do_action( 'plugin_name_init', $plugin_name );
+function plugin_name_run() {
+	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+
+	$container_builder = new ContainerBuilder();
+	$loader            = new PhpFileLoader( $container_builder, new FileLocator( __DIR__ ) );
+	$loader->load( PLUGIN_NAME_PATH . 'dependencies/services.php' );
+	$plugin_name = new Plugin( $container_builder );
+	$plugin_name->run();
+
+	do_action( 'plugin_name_init', $plugin_name );
+}
+
+add_action( 'wpforms_loaded', 'run_plugin_name' );
