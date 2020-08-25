@@ -119,6 +119,12 @@ All steps for GH Actions you can find in `.github/workflows/plugin-name.yml` fil
 
 We use a [Husky](https://github.com/typicode/husky) and [Composer Git Hooks](https://github.com/BrainMaestro/composer-git-hooks) libraries to add actions before commit, push, etc. This helps developers make their GH more clear.
 
+## Dependency injection container
+
+The [Dependency Injection](https://symfony.com/doc/current/components/dependency_injection.html) component implements a PSR-11 compatible service container that allows you to standardize and centralize the way objects are constructed in your application.
+
+All dependencies described in `dependencies/service.php` file.
+
 ## Automated testing
 
 We are using for automated testing a Codeception library runs all types of PHP tests.
