@@ -25,7 +25,7 @@ plugin-name.php                             => your-awesome-plugin.php
 Make sure all dependencies have been installed before moving on:
 
 - WordPress >= 5.4
-- PHP >= 7.4.0 (You can easy to downgrade it)
+- PHP >= 7.2.0 (You can easy to downgrade it)
 - Composer
 - Node.js >= 14.8
 - Yarn
