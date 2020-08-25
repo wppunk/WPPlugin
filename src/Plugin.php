@@ -11,6 +11,7 @@
 
 namespace PluginName;
 
+use Exception;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -56,31 +57,48 @@ class Plugin {
 	 * Run plugin
 	 *
 	 * @since {VERSION}
+	 *
+	 * @throws \Exception Object doesn't exist.
 	 */
-	public function run() {
-		if ( is_admin() ) {
-			$this->run_admin();
-		} else {
-			$this->run_front();
-		}
+	public function run(): void {
+		is_admin()
+			? $this->run_admin()
+			: $this->run_front();
 	}
 
 	/**
 	 * Run admin part
 	 *
 	 * @since {VERSION}
+	 *
+	 * @throws Exception Object doesn't exist.
 	 */
-	private function run_admin() {
-		( $this->container_builder->get( 'settings' ) )->hooks();
+	private function run_admin(): void {
+		$this->get_service( 'settings' )->hooks();
 	}
 
 	/**
 	 * Run frontend part
 	 *
 	 * @since {VERSION}
+	 *
+	 * @throws Exception Object doesn't exist.
 	 */
-	private function run_front() {
-		( $this->container_builder->get( 'front' ) )->hooks();
+	private function run_front(): void {
+		$this->get_service( 'settings' )->hooks();
+	}
+
+	/**
+	 * Get service.
+	 *
+	 * @param string $container_name Container name.
+	 *
+	 * @return object|null Get object from DIC.
+	 *
+	 * @throws Exception Object doesn't exist.
+	 */
+	public function get_service( string $container_name ): ?object {
+		return $this->container_builder->get( $container_name );
 	}
 
 }

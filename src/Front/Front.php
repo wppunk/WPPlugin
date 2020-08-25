@@ -27,7 +27,7 @@ class Front {
 	 *
 	 * @since {VERSION}
 	 */
-	public function hooks() {
+	public function hooks(): void {
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 	}
@@ -37,8 +37,7 @@ class Front {
 	 *
 	 * @since {VERSION}
 	 */
-	public function enqueue_styles() {
-
+	public function enqueue_styles(): void {
 		wp_enqueue_style(
 			'plugin-name',
 			PLUGIN_NAME_URL . 'assets/css/build/main.css',
@@ -53,8 +52,7 @@ class Front {
 	 *
 	 * @since {VERSION}
 	 */
-	public function enqueue_scripts() {
-
+	public function enqueue_scripts(): void {
 		wp_enqueue_script(
 			'plugin-name',
 			PLUGIN_NAME_URL . 'assets/js/build/main.js',

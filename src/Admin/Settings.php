@@ -27,7 +27,7 @@ class Settings {
 	 *
 	 * @since {VERSION}
 	 */
-	public function hooks() {
+	public function hooks(): void {
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_styles' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 		add_action( 'admin_menu', [ $this, 'add_menu' ] );
@@ -40,7 +40,7 @@ class Settings {
 	 *
 	 * @param string $hook_suffix The current admin page.
 	 */
-	public function enqueue_styles( string $hook_suffix ) {
+	public function enqueue_styles( string $hook_suffix ): void {
 		if ( false === strpos( $hook_suffix, Plugin::SLUG ) ) {
 			return;
 		}
@@ -61,7 +61,7 @@ class Settings {
 	 *
 	 * @param string $hook_suffix The current admin page.
 	 */
-	public function enqueue_scripts( string $hook_suffix ) {
+	public function enqueue_scripts( string $hook_suffix ): void {
 		if ( false === strpos( $hook_suffix, Plugin::SLUG ) ) {
 			return;
 		}
@@ -80,7 +80,7 @@ class Settings {
 	 *
 	 * @since {VERSION}
 	 */
-	public function add_menu() {
+	public function add_menu(): void {
 		add_menu_page(
 			'Plugin Name Settings',
 			'Plugin Name Settings',
@@ -98,7 +98,7 @@ class Settings {
 	 *
 	 * @since {VERSION}
 	 */
-	public function page_options() {
+	public function page_options(): void {
 		require_once PLUGIN_NAME_PATH . 'templates/admin/settings.php';
 	}
 

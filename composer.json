@@ -9,17 +9,14 @@
     }
   ],
   "config": {
-    "vendor-dir": ".vendor",
     "preferred-install": "dist",
     "platform": {
       "php": "7.4"
     }
   },
   "require": {
-    "symfony/dependency-injection": "^4.0",
-    "symfony/config": "^4.0",
-    "symfony/filesystem": "3.4.9",
-    "symfony/process": "4.4.9"
+    "symfony/dependency-injection": "^5.0",
+    "symfony/config": "^5.0"
   },
   "require-dev": {
     "wp-coding-standards/wpcs": "^2.3",
