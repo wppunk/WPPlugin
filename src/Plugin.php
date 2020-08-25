@@ -85,7 +85,7 @@ class Plugin {
 	 * @throws Exception Object doesn't exist.
 	 */
 	private function run_front(): void {
-		$this->get_service( 'settings' )->hooks();
+		$this->get_service( 'front' )->hooks();
 	}
 
 	/**
