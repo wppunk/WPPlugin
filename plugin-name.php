@@ -7,7 +7,7 @@
  * Version:     {VERSION}
  * Author:      {AUTHOR}
  * Author URI:  {AUTHOR_URL}
- * License:     GPLv2 or later
+ * License:     MIT
  * Text Domain: plugin-name
  *
  * @package     PluginName
@@ -46,7 +46,7 @@ define( 'PLUGIN_NAME_URL', plugin_dir_url( __FILE__ ) );
  * @throws Exception If something went wrong.
  */
 function run_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+	require_once PLUGIN_NAME_PATH . 'vendor/autoload.php';
 
 	$container_builder = new ContainerBuilder();
 	$loader            = new PhpFileLoader( $container_builder, new FileLocator( __DIR__ ) );

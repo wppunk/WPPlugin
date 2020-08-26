@@ -1,7 +1,7 @@
 {
   "name": "wppunk/plugin-name",
   "description": "Plugin description",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "authors": [
     {
       "name": "WPPunk",
