@@ -1,7 +1,6 @@
 ---
 name: "❓ Support Question"
-about: "If you have a question \U0001F4AC please see our docs or use our forums, helpdesk,
-  or Slack Community!"
+about: ''
 title: ''
 labels: ''
 assignees: ''
