@@ -90,7 +90,7 @@ jobs:
             -   name: Install WP
                 working-directory: ${{ env.wp-directory }}
                 run: |
-                    wp core download --version=5.4
+                    wp core download --version=5.5
                     wp config create --dbname="${{ env.DB_NAME }}" --dbuser="${{ env.DB_USER }}" --dbpass="${{ env.DB_PASSWORD }}" --dbhost="${{ env.DB_HOST }}" --dbprefix="${{ env.DB_TABLE_PREFIX }}"
                     wp core install --url="${{ env.WP_URL }}" --title="Test" --admin_user="${{ env.WP_ADMIN_USERNAME }}" --admin_password="${{ env.WP_ADMIN_PASSWORD }}" --admin_email="${{ env.WP_ADMIN_EMAIL }}" --skip-email
                     wp rewrite structure '/%postname%/' --hard
