@@ -45,4 +45,5 @@
 	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
 		<severity>0</severity>
 	</rule>
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found"/>
 </ruleset>
