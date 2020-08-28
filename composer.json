@@ -38,12 +38,8 @@
   "extra": {
     "phpcodesniffer-search-depth": 1,
     "hooks": {
-      "pre-commit": [
-        "composer cs"
-      ],
       "pre-push": [
-        "composer cs",
-        "composer unit"
+        "composer cs"
       ]
     }
   },
