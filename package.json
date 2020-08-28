@@ -14,12 +14,14 @@
     "encore": "^0.0.30-beta",
     "eslint": "^7.7.0",
     "eslint-loader": "^3.0.0",
+    "handlebars": "^4.3.0",
     "husky": "^4.2.5",
     "jest": "^26.4.0",
     "jest-fetch-mock": "^3.0.3",
     "pkg": "^4.4.9",
     "postcss-loader": "^3.0.0",
     "postcss-simple-vars": "^5.0.2",
+    "uglify-js": "^2.6.0",
     "webpack-notifier": "^1.8.0"
   },
   "browserslist": [
