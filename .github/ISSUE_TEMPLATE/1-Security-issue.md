@@ -1,6 +1,6 @@
 ---
 name: "\U0001F512 Security issue"
-about: 'Please report security issues **only** by email'
+about: 'Please report security issues *only* by email'
 title: ''
 labels: ''
 assignees: ''
