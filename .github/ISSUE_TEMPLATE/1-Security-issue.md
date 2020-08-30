@@ -1,6 +1,6 @@
 ---
 name: "\U0001F512 Security issue"
-about: 
+about: ''
 title: ''
 labels: ''
 assignees: ''
