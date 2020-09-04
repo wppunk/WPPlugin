@@ -5,3 +5,5 @@
 /assets/build/
 /node_modules/
 /vendor/
+/dependencies/classmap/
+/dependencies/psr/
