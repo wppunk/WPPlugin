@@ -4,6 +4,7 @@
  * @since {VERSION}
  */
 export class Main {
+
 	/**
 	 * Main constructor.
 	 *
