@@ -31,7 +31,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "yarn cs"
+      "pre-push": "yarn cs"
     }
   },
   "jest": {
