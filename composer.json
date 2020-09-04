@@ -9,14 +9,14 @@
     }
   ],
   "config": {
-    "preferred-install": "dist",
     "platform": {
       "php": "7.2.5"
     }
   },
   "require": {
-    "symfony/dependency-injection": "^5.0",
-    "symfony/config": "^5.0"
+    "symfony/dependency-injection": "^5.1.5",
+    "symfony/config": "^5.1.5",
+    "coenjacobs/mozart": "0.6.0-beta-3"
   },
   "require-dev": {
     "wp-coding-standards/wpcs": "^2.3",
@@ -32,8 +32,12 @@
   },
   "autoload": {
     "psr-4": {
-      "PluginName\\": "src/"
-    }
+      "PluginName\\": "src/",
+      "PluginName\\Dependencies\\": "dependencies/psr/"
+    },
+    "classmap": [
+      "dependencies/classmap/"
+    ]
   },
   "extra": {
     "phpcodesniffer-search-depth": 1,
@@ -41,11 +45,33 @@
       "pre-push": [
         "composer cs"
       ]
+    },
+    "mozart": {
+      "dep_namespace": "PluginName\\Dependencies\\",
+      "dep_directory": "/dependencies/psr/",
+      "classmap_prefix": "plugin_name_",
+      "classmap_directory": "/dependencies/classmap/",
+      "packages": [
+        "symfony/dependency-injection",
+        "symfony/config"
+      ],
+      "delete_vendor_directories": false,
+      "override_autoload": {
+        "symfony/polyfill-php80": {}
+      }
     }
   },
   "scripts": {
     "acceptance": "codecept run acceptance -c .codeception.yml",
     "unit": "codecept run unit -c .codeception.yml",
-    "cs": "phpcs --standard=.phpcs.xml ."
+    "cs": "phpcs --standard=.phpcs.xml .",
+    "post-install-cmd": [
+      "mozart compose",
+      "composer dump-autoload"
+    ],
+    "post-update-cmd": [
+      "mozart compose",
+      "composer dump-autoload"
+    ]
   }
 }

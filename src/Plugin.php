@@ -12,7 +12,7 @@
 namespace PluginName;
 
 use Exception;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use PluginName\Dependencies\Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Class Plugin

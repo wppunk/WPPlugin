@@ -9,9 +9,9 @@
  * @author  {AUTHOR}
  */
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-
 // Exit if accessed directly.
+use PluginName\Dependencies\Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
