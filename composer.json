@@ -15,8 +15,7 @@
   },
   "require": {
     "symfony/dependency-injection": "^5.1.5",
-    "symfony/config": "^5.1.5",
-    "coenjacobs/mozart": "0.6.0-beta-3"
+    "symfony/config": "^5.1.5"
   },
   "require-dev": {
     "wp-coding-standards/wpcs": "^2.3",
@@ -28,7 +27,8 @@
     "codeception/module-webdriver": "^1.1.1",
     "brain/monkey": "^2.4",
     "brainmaestro/composer-git-hooks": "^2.8.3",
-    "lucatume/wp-browser": "^2.6.10"
+    "lucatume/wp-browser": "^2.6.10",
+    "bamarni/composer-bin-plugin": "^1.4"
   },
   "autoload": {
     "psr-4": {
@@ -36,7 +36,7 @@
       "PluginName\\Dependencies\\": "dependencies/psr/"
     },
     "classmap": [
-      "dependencies/classmap/"
+      "dependencies/vendor/"
     ]
   },
   "extra": {
@@ -45,32 +45,26 @@
       "pre-push": [
         "composer cs"
       ]
-    },
-    "mozart": {
-      "dep_namespace": "PluginName\\Dependencies\\",
-      "dep_directory": "/dependencies/psr/",
-      "classmap_prefix": "plugin_name_",
-      "classmap_directory": "/dependencies/classmap/",
-      "packages": [
-        "symfony/dependency-injection",
-        "symfony/config"
-      ],
-      "delete_vendor_directories": false,
-      "override_autoload": {
-        "symfony/polyfill-php80": {}
-      }
     }
   },
   "scripts": {
     "acceptance": "codecept run acceptance -c .codeception.yml",
     "unit": "codecept run unit -c .codeception.yml",
     "cs": "phpcs --standard=.phpcs.xml .",
+    "install-scoper": [
+      "composer bin php-scoper config minimum-stability dev",
+      "composer bin php-scoper config prefer-stable true",
+      "composer bin php-scoper require --dev humbug/php-scoper"
+    ],
+    "scoper": "php-scoper add-prefix --config .scoper.inc.php --output-dir dependencies/vendor/",
     "post-install-cmd": [
-      "mozart compose",
+      "composer install-scoper",
+      "composer scoper",
       "composer dump-autoload"
     ],
     "post-update-cmd": [
-      "mozart compose",
+      "composer install-scoper",
+      "composer scoper",
       "composer dump-autoload"
     ]
   }

@@ -19,9 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use PluginName\Plugin;
-use PluginName\Dependencies\Symfony\Component\Config\FileLocator;
-use PluginName\Dependencies\Symfony\Component\DependencyInjection\ContainerBuilder;
-use PluginName\Dependencies\Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+use PluginName\Vendor\Symfony\Component\Config\FileLocator;
+use PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder;
+use PluginName\Vendor\Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 if ( version_compare( phpversion(), '7.2.5', '<' ) ) {
 

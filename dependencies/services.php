@@ -10,7 +10,7 @@
  */
 
 // Exit if accessed directly.
-use PluginName\Dependencies\Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use PluginName\Vendor\Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
