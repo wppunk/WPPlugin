@@ -40,7 +40,7 @@ class PluginTest extends TestCase {
 			->shouldReceive( 'hooks' )
 			->withNoArgs()
 			->once();
-		$container_builder = \Mockery::mock( '\Symfony\Component\DependencyInjection\ContainerBuilder' );
+		$container_builder = \Mockery::mock( '\PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder' );
 		$container_builder
 			->shouldReceive( 'get' )
 			->with( 'settings' )
@@ -66,7 +66,7 @@ class PluginTest extends TestCase {
 			->shouldReceive( 'hooks' )
 			->withNoArgs()
 			->once();
-		$container_builder = \Mockery::mock( '\Symfony\Component\DependencyInjection\ContainerBuilder' );
+		$container_builder = \Mockery::mock( '\PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder' );
 		$container_builder
 			->shouldReceive( 'get' )
 			->with( 'front' )
