@@ -14,7 +14,7 @@ module.exports = {
 		'complexity': [
 			'warn',
 			{
-				'max': 6
+				'max': 4
 			}
 		],
 		'max-lines-per-function': [
@@ -27,7 +27,7 @@ module.exports = {
 		],
 		'max-depth': [
 			'error',
-			3
+			2
 		]
 	}
 };
