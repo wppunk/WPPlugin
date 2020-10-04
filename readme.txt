@@ -1,4 +1,4 @@
-=== Shipping Nova Poshta for WooCommerce ===
+=== Plugin Name ===
 Contributors: wppunk
 Donate link: Fill ( https://your-donate.link )
 Tags: TODO:Fill ( tag1, tag2, tag3 )
