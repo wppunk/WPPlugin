@@ -43,7 +43,6 @@ return [
 	'patchers'                   => [
 		function ( string $file_path, string $prefix, string $contents ): string {
 			// Change the contents here.
-
 			return str_replace(
 				'Symfony\\\\',
 				sprintf( '%s\\\\Symfony\\\\', addslashes( $prefix ) ),
