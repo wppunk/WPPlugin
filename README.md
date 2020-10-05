@@ -60,7 +60,8 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 ├── templates/                      # → Templates for plugin views.
 ├── vendor/                         # → Composer packages (never edit).
 ├── .codeception.yml                # → Main codeception config.
-├── .eslintrc                       # → JS Coding Standards.
+├── .eslintignore                   # → JS Coding Standards ignore file.
+├── .eslintrc.js                    # → JS Coding Standards config.
 ├── .gitconfig                      # → Config for git.
 ├── .gitignore                      # → Git ignore file.
 ├── .phpcs.xml                      # → Custom PHP Coding Standards.
@@ -111,13 +112,18 @@ As CSS preprocessors we use PostCSS. You can add a some features in the `postcss
 
 We use [Encore](https://symfony.com/doc/current/frontend.html) for the assets build. You can modify it in `webpack.config.js` file.
 
-## GH Actions
+## GitHub
 
+### GH Actions
 All steps for GH Actions you can find in `.github/workflows/plugin-name.yml` file. Also, for wake up a webserver, we need to add `.github/workflows/plugin-name.conf` 
 
-## Make your GH better
+### GH Hooks
 
-We use a [Husky](https://github.com/typicode/husky) and [Composer Git Hooks](https://github.com/BrainMaestro/composer-git-hooks) libraries to add actions before commit, push, etc. This helps developers make their GH more clear.
+Just make you GH repository clear. We use a [Husky](https://github.com/typicode/husky) and [Composer Git Hooks](https://github.com/BrainMaestro/composer-git-hooks) libraries to add actions before commit, push, etc. This helps developers make their GH more clear.
+
+### GH Templates
+
+Basic GH templates for better security issues, support requests, bug reports, enhancements, feature requests, pull requests, and contributing templates.
 
 ## Dependency injection container
 
@@ -138,6 +144,15 @@ function remove_plugin_name_actions( $instance ) {
 
 add_action( 'plugin_name_init', 'remove_plugin_name_actions' );
 ```
+
+## PHP Scoper
+
+You need to add prefixes for each outside dependency because other plugins or themes can use the same dependencies, and it can conflict between packages.
+
+```
+composer scoper
+```
+
 ## Automated testing
 
 We are using for automated testing a Codeception library runs all types of PHP tests.
