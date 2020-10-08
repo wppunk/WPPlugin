@@ -2,28 +2,19 @@
 <ruleset name="PluginName">
 	<description>The code standard for PluginName.</description>
 	<config name="testVersion" value="7.2-"/>
-	<config name="minimum_supported_wp_version" value="5.5"/>
 	<exclude-pattern>\.codeception/*</exclude-pattern>
 	<exclude-pattern>\.github/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>node_modues/*</exclude-pattern>
 	<exclude-pattern>\.idea/*</exclude-pattern>
 	<exclude-pattern>assets/*</exclude-pattern>
-	<exclude-pattern>*\.json</exclude-pattern>
-	<exclude-pattern>*\.lock</exclude-pattern>
-	<exclude-pattern>*\.xml</exclude-pattern>
-	<exclude-pattern>*\.md</exclude-pattern>
-	<exclude-pattern>*\.txt</exclude-pattern>
-	<exclude-pattern>*\.js</exclude-pattern>
-	<exclude-pattern>*\.css</exclude-pattern>
-	<exclude-pattern>*\.scss</exclude-pattern>
 
 	<arg value="ps"/>
 	<arg name="colors"/>
 	<arg name="extensions" value="php"/>
 
 	<rule ref="WordPress">
-		<!-- PSR4 yo -->
+		<!-- PSR4 -->
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
 		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
 	</rule>
