@@ -18,6 +18,8 @@
 	<exclude-pattern>*\.css</exclude-pattern>
 	<exclude-pattern>*\.scss</exclude-pattern>
 
+	<arg value="ps"/>
+	<arg name="colors"/>
 	<arg name="extensions" value="php"/>
 
 	<rule ref="WordPress">
