@@ -7,3 +7,4 @@
 /vendor/
 /vendor-bin/
 /dependencies/vendor/
+.phpcs.cache

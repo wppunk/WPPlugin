@@ -12,7 +12,8 @@
 	<arg value="ps"/>
 	<arg name="colors"/>
 	<arg name="extensions" value="php"/>
-	<arg name="parallel" value="12"/>
+	<arg name="parallel" value="100"/>
+	<arg name="cache" value=".phpcs.cache"/>
 
 	<rule ref="WordPress">
 		<!-- PSR4 -->
