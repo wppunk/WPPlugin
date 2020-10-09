@@ -12,6 +12,7 @@
 	<arg value="ps"/>
 	<arg name="colors"/>
 	<arg name="extensions" value="php"/>
+	<arg name="parallel" value="12"/>
 
 	<rule ref="WordPress">
 		<!-- PSR4 -->
