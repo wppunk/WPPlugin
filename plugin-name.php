@@ -86,10 +86,12 @@ function run_plugin_name() {
 	$container_builder = new ContainerBuilder();
 	$loader            = new PhpFileLoader( $container_builder, new FileLocator( __DIR__ ) );
 	$loader->load( PLUGIN_NAME_PATH . 'dependencies/services.php' );
-	$plugin_name = new Plugin( $container_builder );
-	$plugin_name->run();
+	$container_builder->compile();
 
-	do_action( 'plugin_name_init', $plugin_name );
+	( $container_builder->get( Plugin::class ) )->run();
+
+	// You can use the $container->get( PluginName\Some\Class::class ) for get any plugin class.
+	do_action( 'plugin_name_init', $container_builder );
 }
 
 add_action( 'plugins_loaded', 'run_plugin_name' );

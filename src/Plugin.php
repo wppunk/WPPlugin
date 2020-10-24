@@ -12,6 +12,8 @@
 namespace PluginName;
 
 use Exception;
+use PluginName\Front\Front;
+use PluginName\Admin\Settings;
 use PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -74,7 +76,7 @@ class Plugin {
 	 * @throws Exception Object doesn't exist.
 	 */
 	private function run_admin(): void {
-		$this->get_service( 'settings' )->hooks();
+		$this->get_service( Settings::class )->hooks();
 	}
 
 	/**
@@ -85,7 +87,7 @@ class Plugin {
 	 * @throws Exception Object doesn't exist.
 	 */
 	private function run_front(): void {
-		$this->get_service( 'front' )->hooks();
+		$this->get_service( Front::class )->hooks();
 	}
 
 	/**
