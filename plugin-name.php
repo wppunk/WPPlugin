@@ -90,7 +90,10 @@ function run_plugin_name() {
 
 	( $container_builder->get( Plugin::class ) )->run();
 
-	// You can use the $container->get( PluginName\Some\Class::class ) for get any plugin class.
+	/**
+	 * You can use the $container->get( PluginName\Some\Class::class ) for get any plugin class.
+	 * More detail: https://github.com/wppunk/WPPlugin#dependency-injection-container
+	 */
 	do_action( 'plugin_name_init', $container_builder );
 }
 
