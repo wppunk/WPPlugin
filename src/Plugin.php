@@ -76,7 +76,7 @@ class Plugin {
 	 * @throws Exception Object doesn't exist.
 	 */
 	private function run_admin(): void {
-		$this->get_service( Settings::class )->hooks();
+		$this->container_builder->get( Settings::class )->hooks();
 	}
 
 	/**
@@ -87,20 +87,7 @@ class Plugin {
 	 * @throws Exception Object doesn't exist.
 	 */
 	private function run_front(): void {
-		$this->get_service( Front::class )->hooks();
-	}
-
-	/**
-	 * Get service.
-	 *
-	 * @param string $container_name Container name.
-	 *
-	 * @return object|null Get object from DIC.
-	 *
-	 * @throws Exception Object doesn't exist.
-	 */
-	public function get_service( string $container_name ): ?object {
-		return $this->container_builder->get( $container_name );
+		$this->container_builder->get( Front::class )->hooks();
 	}
 
 }
