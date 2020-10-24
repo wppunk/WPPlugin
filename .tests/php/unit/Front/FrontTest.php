@@ -36,8 +36,8 @@ class FrontTest extends TestCase {
 
 		$front->hooks();
 
-		$this->assertTrue( has_action( 'wp_enqueue_scripts', [ $front, 'enqueue_styles' ] ) );
-		$this->assertTrue( has_action( 'wp_enqueue_scripts', [ $front, 'enqueue_scripts' ] ) );
+		$this->assertSame( 10, has_action( 'wp_enqueue_scripts', [ $front, 'enqueue_styles' ] ) );
+		$this->assertSame( 10, has_action( 'wp_enqueue_scripts', [ $front, 'enqueue_scripts' ] ) );
 	}
 
 	/**
@@ -50,14 +50,14 @@ class FrontTest extends TestCase {
 	public function test_enqueue_styles() {
 		$front = new Front();
 		expect( 'wp_enqueue_style' )
+			->once()
 			->with(
 				'plugin-name',
 				PLUGIN_NAME_URL . 'assets/css/build/main.css',
 				[],
 				Plugin::VERSION,
 				'all'
-			)
-			->once();
+			);
 
 		$front->enqueue_styles();
 	}
@@ -72,14 +72,14 @@ class FrontTest extends TestCase {
 	public function test_enqueue_scripts() {
 		$front = new Front();
 		expect( 'wp_enqueue_script' )
+			->once()
 			->with(
 				'plugin-name',
 				PLUGIN_NAME_URL . 'assets/js/build/main.js',
-				[ 'jquery' ],
+				[],
 				Plugin::VERSION,
 				true
-			)
-			->once();
+			);
 
 		$front->enqueue_scripts();
 	}

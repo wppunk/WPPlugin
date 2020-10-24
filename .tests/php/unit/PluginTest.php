@@ -12,7 +12,9 @@
 namespace PluginNameUnitTests;
 
 use PluginName\Plugin;
+use PluginName\Front\Front;
 use PluginNameTests\TestCase;
+use PluginName\Admin\Settings;
 
 use function Brain\Monkey\Functions\expect;
 
@@ -32,19 +34,19 @@ class PluginTest extends TestCase {
 	 */
 	public function test_run_admin() {
 		expect( 'is_admin' )
-			->withNoArgs()
 			->once()
+			->withNoArgs()
 			->andReturn( true );
 		$settings = \Mockery::mock( '\PluginName\Admin\Settings' );
 		$settings
 			->shouldReceive( 'hooks' )
-			->withNoArgs()
-			->once();
+			->once()
+			->withNoArgs();
 		$container_builder = \Mockery::mock( '\PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder' );
 		$container_builder
 			->shouldReceive( 'get' )
-			->with( 'settings' )
 			->once()
+			->with( Settings::class )
 			->andReturn( $settings );
 		$plugin = new Plugin( $container_builder );
 
@@ -58,19 +60,19 @@ class PluginTest extends TestCase {
 	 */
 	public function test_run_front() {
 		expect( 'is_admin' )
-			->withNoArgs()
 			->once()
+			->withNoArgs()
 			->andReturn( false );
 		$front = \Mockery::mock( '\PluginName\Front\Front' );
 		$front
 			->shouldReceive( 'hooks' )
-			->withNoArgs()
-			->once();
+			->once()
+			->withNoArgs();
 		$container_builder = \Mockery::mock( '\PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder' );
 		$container_builder
 			->shouldReceive( 'get' )
-			->with( 'front' )
 			->once()
+			->with( Front::class )
 			->andReturn( $front );
 		$plugin = new Plugin( $container_builder );
 

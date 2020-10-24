@@ -15,6 +15,7 @@ use PluginName\Plugin;
 use PluginNameTests\TestCase;
 use PluginName\Admin\Settings;
 
+use function Brain\Monkey\Functions\when;
 use function Brain\Monkey\Functions\expect;
 
 /**
@@ -36,9 +37,9 @@ class SettingsTest extends TestCase {
 
 		$settings->hooks();
 
-		$this->assertTrue( has_action( 'admin_enqueue_scripts', [ $settings, 'enqueue_styles' ] ) );
-		$this->assertTrue( has_action( 'admin_enqueue_scripts', [ $settings, 'enqueue_scripts' ] ) );
-		$this->assertTrue( has_action( 'admin_menu', [ $settings, 'add_menu' ] ) );
+		$this->assertSame( 10, has_action( 'admin_enqueue_scripts', [ $settings, 'enqueue_styles' ] ) );
+		$this->assertSame( 10, has_action( 'admin_enqueue_scripts', [ $settings, 'enqueue_scripts' ] ) );
+		$this->assertSame( 10, has_action( 'admin_menu', [ $settings, 'add_menu' ] ) );
 	}
 
 	/**
@@ -62,14 +63,14 @@ class SettingsTest extends TestCase {
 	public function test_enqueue_styles() {
 		$settings = new Settings();
 		expect( 'wp_enqueue_style' )
+			->once()
 			->with(
 				'plugin-name-settings',
 				PLUGIN_NAME_URL . 'assets/css/build/settings.css',
 				[],
 				Plugin::VERSION,
 				'all'
-			)
-			->once();
+			);
 
 		$settings->enqueue_styles( 'plugin-name' );
 	}
@@ -95,14 +96,14 @@ class SettingsTest extends TestCase {
 	public function test_enqueue_scripts() {
 		$settings = new Settings();
 		expect( 'wp_enqueue_script' )
+			->once()
 			->with(
 				'plugin-name-settings',
 				PLUGIN_NAME_URL . 'assets/js/build/settings.js',
 				[ 'jquery' ],
 				Plugin::VERSION,
 				true
-			)
-			->once();
+			);
 
 		$settings->enqueue_scripts( 'plugin-name' );
 	}
@@ -116,18 +117,19 @@ class SettingsTest extends TestCase {
 	 */
 	public function test_add_menu() {
 		$settings = new Settings();
+		when( 'esc_html__' )->returnArg();
 		expect( 'add_menu_page' )
+			->once()
 			->with(
 				'Plugin Name Settings',
-				'Plugin Name Settings',
+				'Plugin Name',
 				'manage_options',
 				Plugin::SLUG,
 				[
 					$settings,
 					'page_options',
 				]
-			)
-			->once();
+			);
 
 		$settings->add_menu();
 	}
@@ -143,13 +145,10 @@ class SettingsTest extends TestCase {
 		$page_title = 'Plugin Name Settings';
 		$settings   = new Settings();
 		expect( 'get_admin_page_title' )
-			->with( $page_title )
 			->once()
+			->withNoArgs()
 			->andReturn( $page_title );
-		expect( 'esc_html' )
-			->with( $page_title )
-			->once()
-			->andReturn( $page_title );
+		when( 'esc_html' )->returnArg();
 
 		$settings->page_options();
 	}

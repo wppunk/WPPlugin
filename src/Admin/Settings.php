@@ -82,8 +82,8 @@ class Settings {
 	 */
 	public function add_menu(): void {
 		add_menu_page(
-			'Plugin Name Settings',
-			'Plugin Name',
+			esc_html__( 'Plugin Name Settings', 'plugin-name' ),
+			esc_html__( 'Plugin Name', 'plugin-name' ),
 			'manage_options',
 			Plugin::SLUG,
 			[
