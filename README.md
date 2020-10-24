@@ -129,12 +129,12 @@ Basic GH templates for better security issues, support requests, bug reports, en
 
 The [Dependency Injection](https://symfony.com/doc/current/components/dependency_injection.html) component implements a PSR-11 compatible service container that allows you to standardize and centralize the way objects are constructed in your application.
 
-All dependencies described in `dependencies/service.php` file.
+Automatic load your dependencies use the type hinting or manually in the `dependencies/service.php` file.
 
-You can disable plugin hooks very easily using a DIC. Find the id of the current class in the `dependencies/service.php` file as `$services->set( 'front', 'PluginName\Front\Front');` where `front` is id for the class `PluginName\Front\Front`. Example just disabling frontend assets:
+You can disable plugin hooks very easily using a DIC. Just get the plugin object from the dependency injection container `$container_builder->get( PluginName\Front\Front::class )`. Example just disabling frontend assets:
 ```
-function remove_plugin_name_actions( $instance ) {
-    $front = $instance->get_service( 'front' );
+function remove_plugin_name_frontend_assets( $container_builder ) {
+    $front = $container_builder->get( PluginName\Front\Front::class );
     if ( ! $front ) {
         return;
     }
@@ -142,7 +142,7 @@ function remove_plugin_name_actions( $instance ) {
     remove_action( 'wp_enqueue_scripts', [ $front, 'enqueue_scripts' ] );
 }
 
-add_action( 'plugin_name_init', 'remove_plugin_name_actions' );
+add_action( 'plugin_name_init', 'remove_plugin_name_frontend_assets' );
 ```
 
 ## PHP Scoper
