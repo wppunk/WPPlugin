@@ -60,7 +60,7 @@ class Plugin {
 	 *
 	 * @since {VERSION}
 	 *
-	 * @throws \Exception Object doesn't exist.
+	 * @throws Exception Object doesn't exist.
 	 */
 	public function run(): void {
 		is_admin()
