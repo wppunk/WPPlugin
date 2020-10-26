@@ -61,10 +61,6 @@
       "composer install-scoper",
       "composer scoper"
     ],
-    "post-update-cmd": [
-      "composer install-scoper",
-      "composer scoper"
-    ],
 	"post-create-project-cmd": [
 	  "composer require wppunk/wpplugin-replace --dev",
 	  "@php vendor/wppunk/wpplugin-replace/wpplugin-replace.php",
