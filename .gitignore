@@ -1,7 +1,9 @@
+.DS_Store
 /.idea/
 /.codeception/_cache/
-/.codeception/_output/
-/.codception/_config/params.local.php
+/.codeeception/_output/
+/.codeception/_config/params.local.php
+/.codeception/_support/_generated/
 /assets/build/
 /node_modules/
 /vendor/
