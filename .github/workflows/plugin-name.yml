@@ -54,6 +54,7 @@ jobs:
                 working-directory: ${{ env.wp-plugins-directory }}
                 run: |
                     composer install
+                    composer scoper
                     yarn install
 
             -   name: Validate Coding Standard
