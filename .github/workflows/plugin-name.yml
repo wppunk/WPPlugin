@@ -55,6 +55,7 @@ jobs:
                 run: |
                     composer install
                     composer scoper
+                    composer dumpautoload
                     yarn install
 
             -   name: Validate Coding Standard
