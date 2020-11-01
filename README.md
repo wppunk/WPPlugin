@@ -26,6 +26,8 @@ Make sure all dependencies have been installed before moving on:
 
 - WordPress >= 5.5
 - PHP >= 7.2.5 (You can easy to downgrade it)
+    - DOM extension
+    - CURL extension
 - Composer
 - Node.js >= 14.8
 - Yarn
