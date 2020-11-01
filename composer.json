@@ -62,7 +62,8 @@
 			"composer require wppunk/wpplugin-replace --dev",
 			"@php vendor/wppunk/wpplugin-replace/wpplugin-replace.php",
 			"composer remove wppunk/wpplugin-replace --dev",
-			"composer scoper -n"
+			"composer scoper -n",
+			"yarn install"
 		]
 	}
 }
