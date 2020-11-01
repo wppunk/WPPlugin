@@ -2,36 +2,23 @@
 
 ## Get Started
 
+One-line install:
 ```
-git clone https://github.com/wppunk/WPPlugin your-plugin-name
-cd your-plugin-name
-composer install
-yarn install
-```
-
-Make the following replacements throughout the project:
-```
-PLUGIN_NAME                                 => YOUR_AWESOME_PLUGIN
-PluginName                                  => YourAwesomePlugin
-plugin-name                                 => your-awesome-plugin
-Plugin Name                                 => Your Awesome Plugin
-plugin-name.php                             => your-awesome-plugin.php
-.github/workflows/plugin-name.yml           => .github/workflows/your-awesome-plugin.yml
-.github/workflows/plugin-name.conf          => .github/workflows/your-awesome-plugin.conf
+composer create-project wppunk/wpplugin your-plugin-directory
 ```
 
 ## Requirements
 
 Make sure all dependencies have been installed before moving on:
 
-- WordPress >= 5.5
+- WordPress
 - PHP >= 7.2.5 (You can easy to downgrade it)
     - DOM extension
     - CURL extension
 - Composer
 - Node.js >= 14.8
 - Yarn
-- ChromeDriver
+- ChromeDriver (for acceptance tests)
 
 ## Structure
 
