@@ -12,7 +12,7 @@ composer create-project wppunk/wpplugin your-plugin-directory
 Make sure all dependencies have been installed before moving on:
 
 - WordPress
-- PHP >= 7.2.5 (You can easy to downgrade it)
+- PHP >= 7.2.5 (You can easily downgrade it)
     - DOM extension
     - CURL extension
 - Composer
@@ -43,7 +43,7 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 │   ├── build/                      # → Assets build directory.
 │   └── src/                        # → Assets source directory.
 ├── dependencies                    # → Directory for DIC configs.
-│   └── services.php                # → PHP congig for DIC.
+│   └── services.php                # → PHP config for DIC.
 ├── node_modules/                   # → JS packages (never edit).
 ├── src/                            # → PHP directory. 
 ├── templates/                      # → Templates for plugin views.
