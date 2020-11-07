@@ -47,7 +47,7 @@ class Settings {
 
 		wp_enqueue_style(
 			'plugin-name-settings',
-			PLUGIN_NAME_URL . 'assets/css/build/settings.css',
+			PLUGIN_NAME_URL . 'assets/build/css/settings.css',
 			[],
 			Plugin::VERSION,
 			'all'

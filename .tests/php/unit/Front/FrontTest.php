@@ -53,7 +53,7 @@ class FrontTest extends TestCase {
 			->once()
 			->with(
 				'plugin-name',
-				PLUGIN_NAME_URL . 'assets/css/build/main.css',
+				PLUGIN_NAME_URL . 'assets/build/css/main.css',
 				[],
 				Plugin::VERSION,
 				'all'
@@ -75,7 +75,7 @@ class FrontTest extends TestCase {
 			->once()
 			->with(
 				'plugin-name',
-				PLUGIN_NAME_URL . 'assets/js/build/main.js',
+				PLUGIN_NAME_URL . 'assets/build/js/main.js',
 				[],
 				Plugin::VERSION,
 				true
