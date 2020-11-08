@@ -13,19 +13,19 @@ namespace PluginNameUnitTests\Admin;
 
 use PluginName\Plugin;
 use PluginNameTests\TestCase;
-use PluginName\Admin\Settings;
+use PluginName\Admin\SettingsPage;
 
 use function Brain\Monkey\Functions\when;
 use function Brain\Monkey\Functions\expect;
 
 /**
- * Class SettingsTest
+ * Class SettingsPageTest
  *
  * @since   {VERSION}
  *
  * @package PluginNameUnitTests\Admin
  */
-class SettingsTest extends TestCase {
+class SettingsPageTest extends TestCase {
 
 	/**
 	 * Test for adding hooks
@@ -33,7 +33,7 @@ class SettingsTest extends TestCase {
 	 * @since {VERSION}
 	 */
 	public function test_hooks() {
-		$settings = new Settings();
+		$settings = new SettingsPage();
 
 		$settings->hooks();
 
@@ -48,7 +48,7 @@ class SettingsTest extends TestCase {
 	 * @since {VERSION}
 	 */
 	public function test_DONT_enqueue_styles() {
-		$settings = new Settings();
+		$settings = new SettingsPage();
 
 		$settings->enqueue_styles( 'hook-suffix' );
 	}
@@ -61,7 +61,7 @@ class SettingsTest extends TestCase {
 	 * @throws \Brain\Monkey\Expectation\Exception\ExpectationArgsRequired Invalid arguments.
 	 */
 	public function test_enqueue_styles() {
-		$settings = new Settings();
+		$settings = new SettingsPage();
 		expect( 'wp_enqueue_style' )
 			->once()
 			->with(
@@ -81,7 +81,7 @@ class SettingsTest extends TestCase {
 	 * @since {VERSION}
 	 */
 	public function test_DONT_enqueue_scripts() {
-		$settings = new Settings();
+		$settings = new SettingsPage();
 
 		$settings->enqueue_scripts( 'hook-suffix' );
 	}
@@ -94,12 +94,12 @@ class SettingsTest extends TestCase {
 	 * @throws \Brain\Monkey\Expectation\Exception\ExpectationArgsRequired Invalid arguments.
 	 */
 	public function test_enqueue_scripts() {
-		$settings = new Settings();
+		$settings = new SettingsPage();
 		expect( 'wp_enqueue_script' )
 			->once()
 			->with(
 				'plugin-name-settings',
-				PLUGIN_NAME_URL . 'assets/js/build/admin/settings.js',
+				PLUGIN_NAME_URL . 'assets/build/js/admin/settings.js',
 				[ 'jquery' ],
 				Plugin::VERSION,
 				true
@@ -116,7 +116,7 @@ class SettingsTest extends TestCase {
 	 * @throws \Brain\Monkey\Expectation\Exception\ExpectationArgsRequired Invalid arguments.
 	 */
 	public function test_add_menu() {
-		$settings = new Settings();
+		$settings = new SettingsPage();
 		when( 'esc_html__' )->returnArg();
 		expect( 'add_menu_page' )
 			->once()
@@ -143,7 +143,7 @@ class SettingsTest extends TestCase {
 	 */
 	public function test_page_option() {
 		$page_title = 'Plugin Name Settings';
-		$settings   = new Settings();
+		$settings   = new SettingsPage();
 		expect( 'get_admin_page_title' )
 			->once()
 			->withNoArgs()

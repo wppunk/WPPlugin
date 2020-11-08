@@ -13,7 +13,7 @@ namespace PluginName;
 
 use Exception;
 use PluginName\Front\Front;
-use PluginName\Admin\Settings;
+use PluginName\Admin\SettingsPage;
 use PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -76,7 +76,7 @@ class Plugin {
 	 * @throws Exception Object doesn't exist.
 	 */
 	private function run_admin(): void {
-		$this->container_builder->get( Settings::class )->hooks();
+		$this->container_builder->get( SettingsPage::class )->hooks();
 	}
 
 	/**

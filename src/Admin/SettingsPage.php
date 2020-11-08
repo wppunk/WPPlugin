@@ -14,13 +14,13 @@ namespace PluginName\Admin;
 use PluginName\Plugin;
 
 /**
- * Class Settings
+ * Class SettingsPage
  *
  * @since   {VERSION}
  *
  * @package PluginName\Admin
  */
-class Settings {
+class SettingsPage {
 
 	/**
 	 * Init hooks
@@ -68,7 +68,7 @@ class Settings {
 
 		wp_enqueue_script(
 			'plugin-name-settings',
-			PLUGIN_NAME_URL . 'assets/js/build/admin/settings.js',
+			PLUGIN_NAME_URL . 'assets/build/js/admin/settings.js',
 			[ 'jquery' ],
 			Plugin::VERSION,
 			true

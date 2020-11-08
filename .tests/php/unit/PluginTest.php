@@ -16,6 +16,8 @@ use PluginName\Front\Front;
 use PluginNameTests\TestCase;
 use PluginName\Admin\Settings;
 
+use PluginName\Admin\SettingsPage;
+
 use function Brain\Monkey\Functions\expect;
 
 /**
@@ -37,7 +39,7 @@ class PluginTest extends TestCase {
 			->once()
 			->withNoArgs()
 			->andReturn( true );
-		$settings = \Mockery::mock( '\PluginName\Admin\Settings' );
+		$settings = \Mockery::mock( '\PluginName\Admin\SettingsPage' );
 		$settings
 			->shouldReceive( 'hooks' )
 			->once()
@@ -46,7 +48,7 @@ class PluginTest extends TestCase {
 		$container_builder
 			->shouldReceive( 'get' )
 			->once()
-			->with( Settings::class )
+			->with( SettingsPage::class )
 			->andReturn( $settings );
 		$plugin = new Plugin( $container_builder );
 
