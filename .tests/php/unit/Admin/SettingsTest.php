@@ -66,7 +66,7 @@ class SettingsTest extends TestCase {
 			->once()
 			->with(
 				'plugin-name-settings',
-				PLUGIN_NAME_URL . 'assets/build/css/settings.css',
+				PLUGIN_NAME_URL . 'assets/build/css/admin/settings.css',
 				[],
 				Plugin::VERSION,
 				'all'
@@ -99,7 +99,7 @@ class SettingsTest extends TestCase {
 			->once()
 			->with(
 				'plugin-name-settings',
-				PLUGIN_NAME_URL . 'assets/js/build/settings.js',
+				PLUGIN_NAME_URL . 'assets/js/build/admin/settings.js',
 				[ 'jquery' ],
 				Plugin::VERSION,
 				true
