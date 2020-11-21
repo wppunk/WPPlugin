@@ -86,7 +86,7 @@ jobs:
                     chmod +x wp-cli.phar
                     mkdir -p wp-cli
                     sudo mv wp-cli.phar wp-cli/wp
-                    echo "::add-path::$GITHUB_WORKSPACE/wp-cli"
+                    echo "$GITHUB_WORKSPACE/wp-cli" >> $GITHUB_PATH
                     echo -n "apache_modules:\n  - mod_rewrite" > "${{ env.wp-directory }}/wp-cli.yml"
 
             -   name: Install WP
