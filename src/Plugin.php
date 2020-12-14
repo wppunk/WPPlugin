@@ -14,7 +14,8 @@ namespace PluginName;
 use Exception;
 use PluginName\Front\Front;
 use PluginName\Admin\SettingsPage;
-use PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder;
+use PluginName\Vendor\Auryn\Injector;
+use PluginName\Vendor\Auryn\InjectionException;
 
 /**
  * Class Plugin
@@ -42,17 +43,17 @@ class Plugin {
 	 *
 	 * @since {VERSION}
 	 *
-	 * @var ContainerBuilder
+	 * @var Injector
 	 */
-	private $container_builder;
+	private $injector;
 
 	/**
 	 * Plugin constructor.
 	 *
-	 * @param ContainerBuilder $container_builder Dependency Injection Container.
+	 * @param Injector $injector Dependency Injection Container.
 	 */
-	public function __construct( ContainerBuilder $container_builder ) {
-		$this->container_builder = $container_builder;
+	public function __construct( Injector $injector ) {
+		$this->injector = $injector;
 	}
 
 	/**
@@ -73,10 +74,10 @@ class Plugin {
 	 *
 	 * @since {VERSION}
 	 *
-	 * @throws Exception Object doesn't exist.
+	 * @throws InjectionException If a cyclic gets detected when provisioning.
 	 */
 	private function run_admin(): void {
-		$this->container_builder->get( SettingsPage::class )->hooks();
+		$this->injector->make( SettingsPage::class )->hooks();
 	}
 
 	/**
@@ -84,10 +85,10 @@ class Plugin {
 	 *
 	 * @since {VERSION}
 	 *
-	 * @throws Exception Object doesn't exist.
+	 * @throws InjectionException If a cyclic gets detected when provisioning.
 	 */
 	private function run_front(): void {
-		$this->container_builder->get( Front::class )->hooks();
+		$this->injector->make( Front::class )->hooks();
 	}
 
 }

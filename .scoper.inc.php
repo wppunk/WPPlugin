@@ -23,11 +23,13 @@ return [
 		files()->
 		in(
 			[
-				'vendor/psr/container/',
-				'vendor/symfony/config/',
-				'vendor/symfony/filesystem/',
-				'vendor/symfony/service-contracts/',
-				'vendor/symfony/dependency-injection/',
+				'vendor/rdlowrey/auryn/lib',
+			]
+		)->
+		exclude(
+			[
+				'test',
+				'examples',
 			]
 		)->
 		name( [ '*.php' ] ),
@@ -42,10 +44,11 @@ return [
 	 */
 	'patchers'                   => [
 		function ( string $file_path, string $prefix, string $contents ): string {
+
 			// Change the contents here.
 			return str_replace(
-				'Symfony\\\\',
-				sprintf( '%s\\\\Symfony\\\\', addslashes( $prefix ) ),
+				'Auryn\\\\',
+				sprintf( '%s\\\\Auryn\\\\', addslashes( $prefix ) ),
 				$contents
 			);
 		},

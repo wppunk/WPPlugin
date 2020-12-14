@@ -19,9 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use PluginName\Plugin;
-use PluginName\Vendor\Symfony\Component\Config\FileLocator;
-use PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder;
-use PluginName\Vendor\Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+use \PluginName\Vendor\Auryn\Injector;
 
 if ( version_compare( phpversion(), '7.2.5', '<' ) ) {
 
@@ -83,18 +81,14 @@ define( 'PLUGIN_NAME_URL', plugin_dir_url( __FILE__ ) );
 function run_plugin_name() {
 	require_once PLUGIN_NAME_PATH . 'vendor/autoload.php';
 
-	$container_builder = new ContainerBuilder();
-	$loader            = new PhpFileLoader( $container_builder, new FileLocator( __DIR__ ) );
-	$loader->load( PLUGIN_NAME_PATH . 'dependencies/services.php' );
-	$container_builder->compile();
-
-	( $container_builder->get( Plugin::class ) )->run();
+	$injector = new Injector();
+	( $injector->make( Plugin::class ) )->run();
 
 	/**
-	 * You can use the $container->get( PluginName\Some\Class::class ) for get any plugin class.
+	 * You can use the $injector->make( PluginName\Some\Class::class ) for get any plugin class.
 	 * More detail: https://github.com/wppunk/WPPlugin#dependency-injection-container
 	 */
-	do_action( 'plugin_name_init', $container_builder );
+	do_action( 'plugin_name_init', $injector );
 }
 
 add_action( 'plugins_loaded', 'run_plugin_name' );

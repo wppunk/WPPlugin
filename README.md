@@ -7,6 +7,11 @@ One-line install:
 composer create-project wppunk/wpplugin your-plugin-directory
 ```
 
+Or you can copy the archive or clone via Git and then run:
+```
+composer init-project
+```
+
 ## Requirements
 
 Make sure all dependencies have been installed before moving on:
@@ -42,12 +47,11 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 ├── assets/                         # → Assets directory.
 │   ├── build/                      # → Assets build directory.
 │   └── src/                        # → Assets source directory.
-├── dependencies                    # → Directory for DIC configs.
-│   └── services.php                # → PHP config for DIC.
 ├── node_modules/                   # → JS packages (never edit).
 ├── src/                            # → PHP directory. 
 ├── templates/                      # → Templates for plugin views.
 ├── vendor/                         # → Composer packages (never edit).
+├── vendor_prefixes/                # → Prefixed composer packages for non-conflict mode (never edit).
 ├── .codeception.yml                # → Main codeception config.
 ├── .eslintignore                   # → JS Coding Standards ignore file.
 ├── .eslintrc.js                    # → JS Coding Standards config.
@@ -116,14 +120,14 @@ Basic GH templates for better security issues, support requests, bug reports, en
 
 ## Dependency injection container
 
-The [Dependency Injection](https://symfony.com/doc/current/components/dependency_injection.html) component implements a PSR-11 compatible service container that allows you to standardize and centralize the way objects are constructed in your application.
+The lightweight [Dependency Injection](https://github.com/rdlowrey/auryn) component implements a PSR-11 compatible service container that allows you to standardize and centralize the way objects are constructed in your application.
 
-Automatic load your dependencies use the type hinting or manually in the `dependencies/service.php` file.
+Automatic load your dependencies using the type hinting.
 
 You can disable plugin hooks very easily using a DIC. Just get the plugin object from the dependency injection container `$container_builder->get( PluginName\Front\Front::class )`. Example just disabling frontend assets:
 ```
-function remove_plugin_name_frontend_assets( $container_builder ) {
-    $front = $container_builder->get( PluginName\Front\Front::class );
+function remove_plugin_name_frontend_assets( $injector ) {
+    $front = $injector->make( PluginName\Front\Front::class );
     if ( ! $front ) {
         return;
     }
