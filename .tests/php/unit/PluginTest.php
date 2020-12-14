@@ -14,8 +14,6 @@ namespace PluginNameUnitTests;
 use PluginName\Plugin;
 use PluginName\Front\Front;
 use PluginNameTests\TestCase;
-use PluginName\Admin\Settings;
-
 use PluginName\Admin\SettingsPage;
 
 use function Brain\Monkey\Functions\expect;
@@ -44,13 +42,13 @@ class PluginTest extends TestCase {
 			->shouldReceive( 'hooks' )
 			->once()
 			->withNoArgs();
-		$container_builder = \Mockery::mock( '\PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder' );
-		$container_builder
-			->shouldReceive( 'get' )
+		$injector = \Mockery::mock( 'PluginName\Vendor\Auryn\Injector' );
+		$injector
+			->shouldReceive( 'make' )
 			->once()
 			->with( SettingsPage::class )
 			->andReturn( $settings );
-		$plugin = new Plugin( $container_builder );
+		$plugin = new Plugin( $injector );
 
 		$plugin->run();
 	}
@@ -70,13 +68,13 @@ class PluginTest extends TestCase {
 			->shouldReceive( 'hooks' )
 			->once()
 			->withNoArgs();
-		$container_builder = \Mockery::mock( '\PluginName\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder' );
-		$container_builder
-			->shouldReceive( 'get' )
+		$injector = \Mockery::mock( 'PluginName\Vendor\Auryn\Injector' );
+		$injector
+			->shouldReceive( 'make' )
 			->once()
 			->with( Front::class )
 			->andReturn( $front );
-		$plugin = new Plugin( $container_builder );
+		$plugin = new Plugin( $injector );
 
 		$plugin->run();
 	}
