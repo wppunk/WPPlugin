@@ -8,5 +8,5 @@
 /node_modules/
 /vendor/
 /vendor-bin/
-/dependencies/vendor/
+/vendor_prefixed/
 .phpcs.cache
