@@ -56,19 +56,23 @@ jobs:
                     composer install
                     composer scoper
                     composer dumpautoload
-                    yarn install
+                    npm install
 
             -   name: Validate Coding Standard
                 working-directory: ${{ env.wp-plugins-directory }}
                 run: |
                     composer cs
-                    yarn cs
+                    npm run cs
 
             -   name: Run unit tests
                 working-directory: ${{ env.wp-plugins-directory }}
                 run: |
                     composer unit
-                    yarn unit
+                    npm run unit
+
+            -   name: Build assets
+                working-directory: ${{ env.wp-plugins-directory }}
+                run: npm run build
 
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2

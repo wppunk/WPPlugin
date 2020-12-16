@@ -22,7 +22,7 @@ Make sure all dependencies have been installed before moving on:
     - CURL extension
 - Composer
 - Node.js >= 14.8
-- Yarn
+- npm
 - ChromeDriver (for acceptance tests)
 
 ## Structure
@@ -58,18 +58,17 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 ├── .gitconfig                      # → Config for git.
 ├── .gitignore                      # → Git ignore file.
 ├── .phpcs.xml                      # → Custom PHP Coding Standards.
-├── .postcssrc.js                   # → PostCSS config file.
 ├── .webpack.config.js              # → Encore configuration file.
 ├── CHANGELOG.md                    # → Changelog file for GH.
 ├── composer.json                   # → Composer dependencies and scripts.
 ├── composer.lock                   # → Composer lock file (never edit).
 ├── LICENSE                         # → License file.
 ├── package.json                    # → JS dependencies and scripts.
+├── package-lock.json               # → Package lock file (never edit).
 ├── plugin-name.php                 # → Bootstrap plugin file.
 ├── README.md                       # → Readme MD for GitHub repository.
 ├── readme.txt                      # → Readme TXT for the wp.org repository.
-├── uninstall.php                   # → Uninstall file.
-└── yarn.lock                       # → Yarn lock file (never edit).
+└── uninstall.php                   # → Uninstall file.
 ```
 
 ## Autoload
@@ -101,7 +100,7 @@ All assets are located in `assets/src/*`.
 
 All builds are located in `assets/build/*`.
 
-As CSS preprocessors we use PostCSS. You can add a some features in the `postcss.config.js` file. 
+As CSS preprocessors we use SCSS. 
 
 We use [Encore](https://symfony.com/doc/current/frontend.html) for the assets build. You can modify it in `webpack.config.js` file.
 
@@ -212,7 +211,7 @@ composer acceptance
 
 For running use a CLI command:
 ```
-yarn unit
+npm run unit
 ```
 
 - Main configuration inside `.tests/js/package.json` in directory `jest`
