@@ -57,12 +57,17 @@
 			"rm -rf vendor-bin/",
 			"composer dumpautoload"
 		],
+		"build": [
+			"composer require rdlowrey/auryn",
+			"composer scoper -n",
+			"composer remove rdlowrey/auryn",
+			"composer dumpautoload"
+		],
 		"init-project": [
 			"composer require wppunk/wpplugin-replace --dev",
 			"@php vendor/wppunk/wpplugin-replace/wpplugin-replace.php",
 			"composer remove wppunk/wpplugin-replace --dev",
-			"composer scoper -n",
-			"composer remove rdlowrey/auryn",
+			"composer build",
 			"npm install"
 		],
 		"post-create-project-cmd": [
