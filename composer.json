@@ -63,7 +63,7 @@
 			"composer remove wppunk/wpplugin-replace --dev",
 			"composer scoper -n",
 			"composer remove rdlowrey/auryn",
-			"yarn install"
+			"npm install"
 		],
 		"post-create-project-cmd": [
 			"composer init-project"
