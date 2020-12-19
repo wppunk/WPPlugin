@@ -2,13 +2,15 @@
 /**
  * Bootstrap file
  *
- * Plugin Name: Plugin Name
- * Description: The plugin adds information about the games to the site posts.
- * Version:     {VERSION}
- * Author:      {AUTHOR}
- * Author URI:  {AUTHOR_URL}
- * License:     MIT
- * Text Domain: plugin-name
+ * Plugin Name:         Plugin Name
+ * Description:         The plugin adds information about the games to the site posts.
+ * Version:             {VERSION}
+ * Requires at least:   4.9
+ * Requires PHP:        5.5
+ * Author:              {AUTHOR}
+ * Author URI:          {AUTHOR_URL}
+ * License:             MIT
+ * Text Domain:         plugin-name
  *
  * @package     PluginName
  */
@@ -19,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use PluginName\Plugin;
-use \PluginName\Vendor\Auryn\Injector;
+use PluginName\Vendor\Auryn\Injector;
 
 if ( version_compare( phpversion(), '7.2.5', '<' ) ) {
 
