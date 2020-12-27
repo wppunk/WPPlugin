@@ -27,7 +27,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-push": "yarn cs"
+      "pre-push": "npm run cs"
     }
   },
   "jest": {
