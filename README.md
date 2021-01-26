@@ -58,6 +58,8 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 ├── .gitconfig                      # → Config for git.
 ├── .gitignore                      # → Git ignore file.
 ├── .phpcs.xml                      # → Custom PHP Coding Standards.
+├── .scoper.inc.php                 # → Config for the PHP Scoper.
+├── .stylelintrc                    # → Config for the style linter.
 ├── .webpack.config.js              # → Encore configuration file.
 ├── CHANGELOG.md                    # → Changelog file for GH.
 ├── composer.json                   # → Composer dependencies and scripts.
@@ -77,6 +79,11 @@ We use PSR-4 and composer autoload for PSR-4. You can find it in `composer.json`
 
 ## Coding Standards
 
+To check all coding standards:
+```
+npm run cs
+```
+
 ### PHP Coding Standard (PHPCS)
 
 We use a custom coding standard based on [WordPress Coding Standard](https://github.com/WordPress/WordPress-Coding-Standards). We disabled rules for the naming of WordPress files for using PSR-4 autoload. Also, we have a [feature](https://github.com/PHPCompatibility/PHPCompatibilityWP), which can allow testing your code using different PHP environments.
@@ -86,6 +93,10 @@ Custom PHPCS your can find in the `.phpcs.xml`.
 Your can check PHPCS using a CLI:
 ```
 composer cs
+```
+or
+```
+npm run cs:php
 ``` 
 
 PHPCS checked before each commit, before the push, and in GH Actions.
@@ -93,6 +104,22 @@ PHPCS checked before each commit, before the push, and in GH Actions.
 ### JS Coding Standard (JSCS)
 
 We use a default WordPress JSCS, but you can modify it in the `.eslintrc` file. 
+
+You can check JSCS using a CLI:
+
+```
+npm run cs:js
+```
+
+### SCSS Coding Standard (SCSSCS)
+
+We use a default standards for SCSS, but you can modify it in the `.stylelintrc` file.
+
+You can check SCSSCS using a CLI:
+
+```
+npm run cs:scss
+```
 
 ## Frontend
 
