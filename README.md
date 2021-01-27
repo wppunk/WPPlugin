@@ -138,7 +138,7 @@ All steps for GH Actions you can find in `.github/workflows/plugin-name.yml` fil
 
 ### GH Hooks
 
-Just make you GH repository clear. We use a [Husky](https://github.com/typicode/husky) and [Composer Git Hooks](https://github.com/BrainMaestro/composer-git-hooks) libraries to add actions before commit, push, etc. This helps developers make their GH more clear.
+Just make you GH repository clear. We use the [Husky](https://github.com/typicode/husky) library to add actions before commit, push, etc. This helps developers make their GH more clear.
 
 ### GH Templates
 
