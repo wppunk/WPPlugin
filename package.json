@@ -78,7 +78,7 @@
 		"cs:scss": "stylelint \"assets/.src/**/*.scss\"",
 		"cs:php": "composer cs",
 		"build": "cross-env NODE_ENV=development npx mix --mix-config=.webpack.mix.js",
-		"build:production": "cross-env NODE_ENV=production npx clean mix --mix-config=.webpack.mix.js",
+		"build:production": "cross-env NODE_ENV=production npx mix --production --mix-config=.webpack.mix.js",
 		"start": "cross-env NODE_ENV=development npx mix --watch --mix-config=.webpack.mix.js",
 		"unit": "jest"
 	}
