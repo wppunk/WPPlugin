@@ -1,14 +1,13 @@
 /**
  * Class Settings.
  *
- * @since {VERSION}
+ * @since 1.0.0
  */
 export class Settings {
-
 	/**
 	 * Settings constructor.
 	 *
-	 * @since {VERSION}
+	 * @since 1.0.0
 	 */
 	constructor() {
 		// eslint-disable-next-line no-console

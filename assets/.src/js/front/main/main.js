@@ -1,14 +1,13 @@
 /**
  * Class Main.
  *
- * @since {VERSION}
+ * @since 1.0.0
  */
 export class Main {
-
 	/**
 	 * Main constructor.
 	 *
-	 * @since {VERSION}
+	 * @since 1.0.0
 	 */
 	constructor() {
 		// eslint-disable-next-line no-console

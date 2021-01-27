@@ -1,5 +1,5 @@
 import { Settings } from './settings';
 
-document.addEventListener( 'DOMContentLoaded', () => {
+document.defaultView.document.addEventListener( 'DOMContentLoaded', () => {
 	new Settings();
-});
+} );

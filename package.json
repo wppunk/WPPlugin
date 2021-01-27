@@ -9,14 +9,17 @@
 		"@wordpress/babel-preset-default": "^4.17.0",
 		"@wordpress/browserslist-config": "^2.7.0",
 		"@wordpress/dependency-extraction-webpack-plugin": "^2.8.0",
+		"@wordpress/eslint-plugin": "^8.0.0",
 		"babel-eslint": "^10.1.0",
+		"babel-preset-env": "^1.7.0",
 		"browser-sync": "^2.26.12",
 		"browser-sync-webpack-plugin": "^2.0.1",
 		"cross-env": "^7.0.2",
 		"css-loader": "^5.0.1",
 		"eslint": "^7.15.0",
-		"eslint-config-wordpress": "^2.0.0",
 		"eslint-loader": "^4.0.2",
+		"eslint-plugin-compat": "^3.9.0",
+		"eslint-plugin-import": "^2.22.1",
 		"husky": "^4.3.6",
 		"jest": "^26.6.3",
 		"jest-fetch-mock": "^3.0.3",
@@ -32,10 +35,7 @@
 		"stylelint-config-standard": "^20.0.0"
 	},
 	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"Firefox ESR",
-		"not dead"
+		"extends @wordpress/browserslist-config"
 	],
 	"jest": {
 		"automock": false,
