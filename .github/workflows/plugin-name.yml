@@ -60,9 +60,7 @@ jobs:
 
             -   name: Validate Coding Standard
                 working-directory: ${{ env.wp-plugins-directory }}
-                run: |
-                    composer cs
-                    npm run cs
+                run: npm run cs
 
             -   name: Run unit tests
                 working-directory: ${{ env.wp-plugins-directory }}
