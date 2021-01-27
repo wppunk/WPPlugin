@@ -11,6 +11,6 @@ export class Settings {
 	 */
 	constructor() {
 		// eslint-disable-next-line no-console
-		console.log( 'Settings was started' );
+		console.log('Settings was started');
 	}
 }

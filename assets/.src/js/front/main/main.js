@@ -11,6 +11,6 @@ export class Main {
 	 */
 	constructor() {
 		// eslint-disable-next-line no-console
-		console.log( 'Main was started' );
+		console.log('Main was started');
 	}
 }
