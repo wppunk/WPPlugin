@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6eda95934dea4381ca835bf83b4d13d",
+    "content-hash": "1cd2773a4f43b181e80a24ffeb9ea8b3",
     "packages": [
         {
             "name": "rdlowrey/auryn",
