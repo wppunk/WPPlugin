@@ -60,7 +60,7 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 ├── .phpcs.xml                      # → Custom PHP Coding Standards.
 ├── .scoper.inc.php                 # → Config for the PHP Scoper.
 ├── .stylelintrc                    # → Config for the style linter.
-├── .webpack.config.js              # → Encore configuration file.
+├── .webpack.mix.js                 # → Laravel Mix configuration file.
 ├── CHANGELOG.md                    # → Changelog file for GH.
 ├── composer.json                   # → Composer dependencies and scripts.
 ├── composer.lock                   # → Composer lock file (never edit).
@@ -127,9 +127,16 @@ All assets are located in `assets/src/*`.
 
 All builds are located in `assets/build/*`.
 
-As CSS preprocessors we use SCSS. 
+CSS preprocessor is SCSS. 
 
-We use [Encore](https://symfony.com/doc/current/frontend.html) for the assets build. You can modify it in `webpack.config.js` file.
+We use [Laravel Mix](https://laravel-mix.com/) for the assets build. You can modify it in `.webpack.mix.js` file.
+
+For run Laravel mix you can use the next commands depend on situation:
+```
+npm run build
+npm run build:producation
+npm run start
+```
 
 ## GitHub
 

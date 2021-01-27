@@ -70,7 +70,7 @@ jobs:
 
             -   name: Build assets
                 working-directory: ${{ env.wp-plugins-directory }}
-                run: npm run build
+                run: npm run build:production
 
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
