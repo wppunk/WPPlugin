@@ -29,7 +29,7 @@ class SettingsCest {
 	 */
 	public function visitSettingsPage( AcceptanceTester $I ) {
 		$I->loginAsAdmin();
-		$I->amOnPage( '/wp-admin/admin.php?page=plugin-name' );
+		$I->amOnAdminPage( '/admin.php?page=plugin-name' );
 		$I->see( 'Plugin Name Settings' );
 	}
 
