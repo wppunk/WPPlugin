@@ -134,7 +134,7 @@ We use [Laravel Mix](https://laravel-mix.com/) for the assets build. You can mod
 For run Laravel mix you can use the next commands depend on situation:
 ```
 npm run build
-npm run build:producation
+npm run build:production
 npm run start
 ```
 
