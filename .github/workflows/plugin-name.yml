@@ -23,6 +23,7 @@ jobs:
             DB_USER: user
             DB_PASSWORD: passw0rd
             WP_URL: https://plugin-name.test
+            WP_ADMIN_PATH: /wp-admin
             WP_DOMAIN: plugin-name.test
             WP_ADMIN_USERNAME: admin
             WP_ADMIN_PASSWORD: admin
