@@ -146,7 +146,9 @@ jobs:
                     sudo cp ${{ env.wp-plugins-directory }}/.github/workflows/plugin-name.conf /etc/apache2/sites-available/plugin-name.conf
                     sudo a2enmod headers
                     sudo a2enmod rewrite
+                    sudo a2enmod ssl
                     sudo a2ensite plugin-name
+                    sudo apachectl configtest
                     sudo service apache2 restart
 
             -   name: Set .htaccess
