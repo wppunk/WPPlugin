@@ -24,7 +24,7 @@
 		"codeception/module-db": "^1.1",
 		"codeception/module-webdriver": "^1.2",
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-		"lucatume/wp-browser": "^2.6",
+		"lucatume/wp-browser": "^3.0",
 		"phpcompatibility/php-compatibility": "^9.3",
 		"wp-coding-standards/wpcs": "^2.3"
 	},
