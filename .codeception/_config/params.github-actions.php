@@ -10,13 +10,13 @@
  */
 
 return [
-	'WP_URL'            => 'http://plugin-name.test',
-	'WP_ADMIN_USERNAME' => 'admin',
-	'WP_ADMIN_PASSWORD' => 'admin',
-	'WP_ADMIN_PATH'     => '/wp-admin',
-	'DB_HOST'           => '127.0.0.1',
-	'DB_NAME'           => 'test_db',
-	'DB_USER'           => 'user',
-	'DB_PASSWORD'       => 'passw0rd',
-	'DB_TABLE_PREFIX'   => 'wp_',
+	'WP_URL'            => getenv( 'WP_URL' ),
+	'WP_ADMIN_USERNAME' => getenv( 'WP_ADMIN_USERNAME' ),
+	'WP_ADMIN_PASSWORD' => getenv( 'WP_ADMIN_PASSWORD' ),
+	'WP_ADMIN_PATH'     => getenv( 'WP_ADMIN_PATH' ),
+	'DB_HOST'           => getenv( 'DB_HOST' ),
+	'DB_NAME'           => getenv( 'DB_HOST' ),
+	'DB_USER'           => getenv( 'DB_USER' ),
+	'DB_PASSWORD'       => getenv( 'DB_PASSWORD' ),
+	'DB_TABLE_PREFIX'   => getenv( 'DB_TABLE_PREFIX' ),
 ];

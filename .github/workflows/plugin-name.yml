@@ -16,13 +16,13 @@ jobs:
             php-extensions: mysql
             php-ini-values: post_max_size=256M
             wp-directory: wordpress
-            wp-plugins-directory: wordpress/wp-content/plugins
+            wp-plugins-directory: wordpress/wp-content/plugins/plugin-name/
             DB_HOST: 127.0.0.1
             DB_TABLE_PREFIX: wp_
             DB_NAME: test_db
             DB_USER: user
             DB_PASSWORD: passw0rd
-            WP_URL: http://plugin-name.test
+            WP_URL: https://plugin-name.test
             WP_DOMAIN: plugin-name.test
             WP_ADMIN_USERNAME: admin
             WP_ADMIN_PASSWORD: admin
@@ -45,6 +45,33 @@ jobs:
                 uses: actions/checkout@v2
                 with:
                     path: ${{ env.wp-plugins-directory }}
+
+            -   name: Setup cache environment
+                id: cache-env
+                uses: shivammathur/cache-extensions@v1
+                with:
+                    php-version: ${{ matrix.php-versions }}
+                    extensions: ${{ env.php-extensions }}
+                    key: ${{ env.php-ext-cache-key }}
+                env:
+                    update: true
+
+            -   name: Cache extensions
+                uses: actions/cache@v1
+                with:
+                    path: ${{ steps.cache-env.outputs.dir }}
+                    key: ${{ steps.cache-env.outputs.key }}
+                    restore-keys: ${{ steps.cache-env.outputs.key }}
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    tools: pecl
+                    php-version: ${{ matrix.php-versions }}
+                    extensions: ${{ env.php-extensions }}
+                    ini-values: ${{ env.php-ini-values }}
+                env:
+                    update: true
 
             -   name: Validate composer.json and composer.lock
                 working-directory: ${{ env.wp-plugins-directory }}
@@ -72,16 +99,6 @@ jobs:
                 working-directory: ${{ env.wp-plugins-directory }}
                 run: npm run build:production
 
-            -   name: Setup PHP
-                uses: shivammathur/setup-php@v2
-                with:
-                    tools: pecl
-                    php-version: ${{ matrix.php-versions }}
-                    extensions: ${{ env.php-extensions }}
-                    ini-values: ${{ env.php-ini-values }}
-                env:
-                    update: true
-
             -   name: Install WP CLI
                 run: |
                     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -104,11 +121,21 @@ jobs:
                 working-directory: ${{ env.wp-plugins-directory }}
                 run: mysqldump --column-statistics=0 --host="${{ env.DB_HOST }}" --user="${{ env.DB_USER }}" --password="${{ env.DB_PASSWORD }}" ${{ env.DB_NAME }} > .codeception/_data/dump.sql
 
-
             -   name: Setup hosts
                 run: |
                     echo ${{ env.DB_HOST }} ${{ env.WP_DOMAIN }} | sudo tee -a /etc/hosts
                     cat /etc/hosts
+
+#            -   name: Force SSL
+#                run: |
+#                    sudo apt install libnss3-tools -y
+#                    wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 -O mkcert
+#                    chmod +x mkcert
+#                    sudo mv mkcert /usr/local/bin/
+#                    mkcert -install
+#                    localcaroot=$(mkcert -CAROOT)
+#                    sudo mkdir -p /etc/apache2/ssl/${{ env.WP_DOMAIN }} && cd $_
+#                    sudo CAROOT=$localcaroot mkcert ${{ env.WP_DOMAIN }}
 
             -   name: Install & configure Apache
                 run: |
@@ -121,6 +148,19 @@ jobs:
                     sudo a2enmod rewrite
                     sudo a2ensite plugin-name
                     sudo service apache2 restart
+
+            -   name: Set .htaccess
+                working-directory: ${{ env.wp-directory }}
+                run: |
+                    echo '# BEGIN WordPress
+                    RewriteEngine On
+                    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+                    RewriteBase /
+                    RewriteRule ^index\.php$ - [L]
+                    RewriteCond %{REQUEST_FILENAME} !-f
+                    RewriteCond %{REQUEST_FILENAME} !-d
+                    RewriteRule . /index.php [L]
+                    # END WordPress' > .htaccess
 
             -   name: Setup Chromedriver
                 uses: nanasess/setup-chromedriver@master
