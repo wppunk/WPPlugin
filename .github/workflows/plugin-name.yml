@@ -126,16 +126,16 @@ jobs:
                     echo ${{ env.DB_HOST }} ${{ env.WP_DOMAIN }} | sudo tee -a /etc/hosts
                     cat /etc/hosts
 
-#            -   name: Force SSL
-#                run: |
-#                    sudo apt install libnss3-tools -y
-#                    wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 -O mkcert
-#                    chmod +x mkcert
-#                    sudo mv mkcert /usr/local/bin/
-#                    mkcert -install
-#                    localcaroot=$(mkcert -CAROOT)
-#                    sudo mkdir -p /etc/apache2/ssl/${{ env.WP_DOMAIN }} && cd $_
-#                    sudo CAROOT=$localcaroot mkcert ${{ env.WP_DOMAIN }}
+            -   name: Force SSL
+                run: |
+                    sudo apt install libnss3-tools -y
+                    wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 -O mkcert
+                    chmod +x mkcert
+                    sudo mv mkcert /usr/local/bin/
+                    mkcert -install
+                    localcaroot=$(mkcert -CAROOT)
+                    sudo mkdir -p /etc/apache2/ssl/${{ env.WP_DOMAIN }} && cd $_
+                    sudo CAROOT=$localcaroot mkcert ${{ env.WP_DOMAIN }}
 
             -   name: Install & configure Apache
                 run: |
