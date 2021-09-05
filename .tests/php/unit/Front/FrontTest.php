@@ -11,6 +11,7 @@
 
 namespace PluginNameUnitTests\Front;
 
+use Brain\Monkey\Expectation\Exception\ExpectationArgsRequired;
 use PluginName\Plugin;
 use PluginName\Front\Front;
 use PluginNameTests\TestCase;
@@ -19,19 +20,13 @@ use function Brain\Monkey\Functions\expect;
 
 /**
  * Class FrontTest
- *
- * @since   {VERSION}
- *
- * @package PluginNameUnitTests\Front
  */
 class FrontTest extends TestCase {
 
 	/**
 	 * Test for adding hooks
-	 *
-	 * @since {VERSION}
 	 */
-	public function test_hooks() {
+	public function testHooks(): void {
 		$front = new Front();
 
 		$front->hooks();
@@ -43,11 +38,9 @@ class FrontTest extends TestCase {
 	/**
 	 * Test enqueue styles
 	 *
-	 * @since {VERSION}
-	 *
-	 * @throws \Brain\Monkey\Expectation\Exception\ExpectationArgsRequired Invalid arguments.
+	 * @throws ExpectationArgsRequired Invalid arguments.
 	 */
-	public function test_enqueue_styles() {
+	public function testEnqueueStyles(): void {
 		$front = new Front();
 		expect( 'wp_enqueue_style' )
 			->once()
@@ -65,11 +58,9 @@ class FrontTest extends TestCase {
 	/**
 	 * Test enqueue scripts
 	 *
-	 * @since {VERSION}
-	 *
-	 * @throws \Brain\Monkey\Expectation\Exception\ExpectationArgsRequired Invalid arguments.
+	 * @throws ExpectationArgsRequired Invalid arguments.
 	 */
-	public function test_enqueue_scripts() {
+	public function testEnqueueScripts(): void {
 		$front = new Front();
 		expect( 'wp_enqueue_script' )
 			->once()

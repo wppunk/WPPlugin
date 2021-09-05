@@ -49,12 +49,13 @@ modules:
             adminPassword: '%WP_ADMIN_PASSWORD%'
             adminPath: '%WP_ADMIN_PATH%'
             capabilities:
+                acceptInsecureCerts: true
                 # Used in more recent releases of Selenium.
                 "goog:chromeOptions":
                     # Headless config for production, redefined in env section below.
                     # args: ["--user-agent=wp-browser", "--headless"]
                     # Non-headless config for debugging.
-                    args: ["--user-agent=wp-browser"]
+                    args: ["--user-agent=wp-browser",  "--ignore-certificate-errors"]
 
 env:
     github-actions:

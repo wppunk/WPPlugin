@@ -1,7 +1,7 @@
 .DS_Store
 /.idea/
 /.codeception/_cache/
-/.codeeception/_output/
+/.codeception/_output/
 /.codeception/_config/params.local.php
 /.codeception/_support/_generated/
 /assets/build/
@@ -9,4 +9,5 @@
 /vendor/
 /vendor-bin/
 /vendor_prefixed/
-.phpcs.cache
+.env.development
+.env.production

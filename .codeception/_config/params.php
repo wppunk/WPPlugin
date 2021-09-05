@@ -12,20 +12,32 @@
  * @author  {AUTHOR}
  */
 
+use Codeception\Exception\ConfigurationException;
+use Codeception\Lib\ParamsLoader;
+
 global $argv;
 
 if ( ! in_array( 'acceptance', $argv, true ) ) {
 	return [];
 }
 
-$config = '.codeception/_config/params.github-actions.php';
-if ( in_array( 'github-actions', $argv, true ) && file_exists( $config ) ) {
-	return include $config;
+if ( ! in_array( 'github-actions', $argv, true ) ) {
+	try {
+		( new ParamsLoader() )->load( '.env.development' );
+	} catch ( ConfigurationException $e ) {
+		throw new Exception( 'If you wan\'t to run your tests locally, then create the `.env.development` configuration file.' );
+	}
 }
 
-$config = '.codeception/_config/params.local.php';
-if ( file_exists( $config ) ) {
-	return include $config;
-}
+return [
+	'WP_URL'            => getenv( 'WP_URL' ),
+	'WP_ADMIN_USERNAME' => getenv( 'WP_ADMIN_USERNAME' ),
+	'WP_ADMIN_PASSWORD' => getenv( 'WP_ADMIN_PASSWORD' ),
+	'WP_ADMIN_PATH'     => getenv( 'WP_ADMIN_PATH' ),
+	'DB_HOST'           => getenv( 'DB_HOST' ),
+	'DB_NAME'           => getenv( 'DB_NAME' ),
+	'DB_USER'           => getenv( 'DB_USER' ),
+	'DB_PASSWORD'       => getenv( 'DB_PASSWORD' ),
+	'DB_TABLE_PREFIX'   => getenv( 'DB_TABLE_PREFIX' ),
+];
 
-die( "No valid config provided.\nPlease use 'params.example.php' as a template to create your own 'params.local.php'.\n" );

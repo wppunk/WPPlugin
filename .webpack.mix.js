@@ -1,12 +1,16 @@
 const mix = require( 'laravel-mix' ),
-	path = require( 'path' );
+	path = require( 'path' ),
+	envFile = '.env.' + process.env.NODE_ENV;
 
+require( 'mix-env-file' );
 require( 'laravel-mix-purgecss' );
 require( 'laravel-mix-copy-watched' );
 
+mix.env( envFile );
+
 mix
 	.setPublicPath( './assets/build' )
-	.browserSync( 'wp-punk.com' ); // Change domain to the domain for the current project.
+	.browserSync( process.env.WP_URL ); // Change domain to the domain for the current project.
 
 mix
 	.sass( 'assets/.src/scss/admin/settings.scss', 'css/admin' )

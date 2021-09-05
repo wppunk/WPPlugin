@@ -11,26 +11,20 @@
 
 /**
  * Class SettingsCest.
- *
- * phpcs:ignoreFile WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
- *
- * @since {VERSION}
  */
 class SettingsCest {
 
 	/**
 	 * Check a Settings Page
 	 *
-	 * @since        {VERSION}
+	 * @param AcceptanceTester $i Actor.
 	 *
-	 * @param \AcceptanceTester $I Actor.
-	 *
-	 * @throws \Exception Something when wrong.
+	 * @throws Exception Something when wrong.
 	 */
-	public function visitSettingsPage( AcceptanceTester $I ) {
-		$I->loginAsAdmin();
-		$I->amOnAdminPage( '/admin.php?page=plugin-name' );
-		$I->see( 'Plugin Name Settings' );
+	public function visitSettingsPage( AcceptanceTester $i ): void {
+		$i->loginAsAdmin();
+		$i->amOnAdminPage( '/admin.php?page=plugin-name' );
+		$i->see( 'Plugin Name Settings' );
 	}
 
 }
