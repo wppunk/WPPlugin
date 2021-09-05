@@ -53,6 +53,7 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 ├── vendor/                         # → Composer packages (never edit).
 ├── vendor_prefixes/                # → Prefixed composer packages for non-conflict mode (never edit).
 ├── .codeception.yml                # → Main codeception config.
+├── .env.example                    # → Example for the .env.development and .env.production files
 ├── .eslintignore                   # → JS Coding Standards ignore file.
 ├── .eslintrc.js                    # → JS Coding Standards config.
 ├── .gitconfig                      # → Config for git.
@@ -99,6 +100,8 @@ or
 npm run cs:php
 ``` 
 
+Pay attention, tests have a bit another coding standards because testing libraries all using camelCase format for methods, function, variables, and properties.
+
 PHPCS checked before each commit, before the push, and in GH Actions.
 
 ### JS Coding Standard (JSCS)
@@ -120,6 +123,10 @@ You can check SCSSCS using a CLI:
 ```
 npm run cs:scss
 ```
+
+## Environments
+
+For any constants you can create the `.env.development` and `.env.production` files. For example, we use these constants from the `.env.example` file for the browserSync inside the Laravel Mix config and for acceptance tests.
 
 ## Frontend
 
