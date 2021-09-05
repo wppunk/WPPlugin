@@ -11,38 +11,37 @@
 
 namespace PluginNameUnitTests;
 
+use Brain\Monkey\Expectation\Exception\ExpectationArgsRequired;
+use Exception;
 use PluginName\Plugin;
 use PluginName\Front\Front;
 use PluginNameTests\TestCase;
 use PluginName\Admin\SettingsPage;
 
 use function Brain\Monkey\Functions\expect;
+use PluginName\Vendor\Auryn\Injector;
 
 /**
  * Class FrontTest
- *
- * @since   {VERSION}
- *
- * @package PluginNameUnitTests\Front
  */
 class PluginTest extends TestCase {
 
 	/**
 	 * Test for adding hooks
 	 *
-	 * @since {VERSION}
+	 * @throws ExpectationArgsRequired
 	 */
-	public function test_run_admin() {
+	public function testRunAdmin(): void {
 		expect( 'is_admin' )
 			->once()
 			->withNoArgs()
 			->andReturn( true );
-		$settings = \Mockery::mock( '\PluginName\Admin\SettingsPage' );
+		$settings = \Mockery::mock( SettingsPage::class );
 		$settings
 			->shouldReceive( 'hooks' )
 			->once()
 			->withNoArgs();
-		$injector = \Mockery::mock( 'PluginName\Vendor\Auryn\Injector' );
+		$injector = \Mockery::mock( Injector::class );
 		$injector
 			->shouldReceive( 'make' )
 			->once()
@@ -56,19 +55,20 @@ class PluginTest extends TestCase {
 	/**
 	 * Test for adding hooks
 	 *
-	 * @since {VERSION}
+	 * @throws ExpectationArgsRequired
+	 * @throws Exception
 	 */
-	public function test_run_front() {
+	public function testRunFront(): void {
 		expect( 'is_admin' )
 			->once()
 			->withNoArgs()
 			->andReturn( false );
-		$front = \Mockery::mock( '\PluginName\Front\Front' );
+		$front = \Mockery::mock( Front::class );
 		$front
 			->shouldReceive( 'hooks' )
 			->once()
 			->withNoArgs();
-		$injector = \Mockery::mock( 'PluginName\Vendor\Auryn\Injector' );
+		$injector = \Mockery::mock( Injector::class );
 		$injector
 			->shouldReceive( 'make' )
 			->once()

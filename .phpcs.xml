@@ -14,7 +14,6 @@
 	<arg name="colors"/>
 	<arg name="extensions" value="php"/>
 	<arg name="parallel" value="100"/>
-	<arg name="cache" value=".phpcs.cache"/>
 
 	<rule ref="WordPress">
 		<!-- PSR4 -->
@@ -42,4 +41,35 @@
 		<severity>0</severity>
 	</rule>
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found"/>
+
+	<!-- Tests -->
+	<rule ref="Squiz.Commenting.FunctionComment.EmptyThrows">
+		<exclude-pattern>\.codeception/_support/*</exclude-pattern>
+		<exclude-pattern>\.tests/php/*</exclude-pattern>
+	</rule>
+	<rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+		<exclude-pattern>\.codeception/_support/*</exclude-pattern>
+		<exclude-pattern>\.tests/php/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid">
+		<exclude-pattern>\.codeception/_support/*</exclude-pattern>
+		<exclude-pattern>\.tests/php/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase">
+		<exclude-pattern>\.codeception/_support/*</exclude-pattern>
+		<exclude-pattern>\.tests/php/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase">
+		<exclude-pattern>\.codeception/_support/*</exclude-pattern>
+		<exclude-pattern>\.tests/php/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.NamingConventions.ValidVariableName.PropertyNotSnakeCase">
+		<exclude-pattern>\.codeception/_support/*</exclude-pattern>
+		<exclude-pattern>\.tests/php/*</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.NamingConventions">
+		<exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+		<include-pattern>\.codeception/_support/*</include-pattern>
+		<include-pattern>\.tests/php/*</include-pattern>
+	</rule>
 </ruleset>

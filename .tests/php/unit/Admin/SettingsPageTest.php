@@ -11,6 +11,7 @@
 
 namespace PluginNameUnitTests\Admin;
 
+use Brain\Monkey\Expectation\Exception\ExpectationArgsRequired;
 use PluginName\Plugin;
 use PluginNameTests\TestCase;
 use PluginName\Admin\SettingsPage;
@@ -20,19 +21,13 @@ use function Brain\Monkey\Functions\expect;
 
 /**
  * Class SettingsPageTest
- *
- * @since   {VERSION}
- *
- * @package PluginNameUnitTests\Admin
  */
 class SettingsPageTest extends TestCase {
 
 	/**
 	 * Test for adding hooks
-	 *
-	 * @since {VERSION}
 	 */
-	public function test_hooks() {
+	public function testHooks(): void {
 		$settings = new SettingsPage();
 
 		$settings->hooks();
@@ -44,10 +39,8 @@ class SettingsPageTest extends TestCase {
 
 	/**
 	 * Test don't enqueue styles
-	 *
-	 * @since {VERSION}
 	 */
-	public function test_DONT_enqueue_styles() {
+	public function testDontEnqueueStyles(): void {
 		$settings = new SettingsPage();
 
 		$settings->enqueue_styles( 'hook-suffix' );
@@ -56,11 +49,9 @@ class SettingsPageTest extends TestCase {
 	/**
 	 * Test enqueue styles
 	 *
-	 * @since {VERSION}
-	 *
-	 * @throws \Brain\Monkey\Expectation\Exception\ExpectationArgsRequired Invalid arguments.
+	 * @throws ExpectationArgsRequired Invalid arguments.
 	 */
-	public function test_enqueue_styles() {
+	public function testEnqueueStyles(): void {
 		$settings = new SettingsPage();
 		expect( 'wp_enqueue_style' )
 			->once()
@@ -77,10 +68,8 @@ class SettingsPageTest extends TestCase {
 
 	/**
 	 * Test don't enqueue scripts
-	 *
-	 * @since {VERSION}
 	 */
-	public function test_DONT_enqueue_scripts() {
+	public function testDontEnqueueScripts(): void {
 		$settings = new SettingsPage();
 
 		$settings->enqueue_scripts( 'hook-suffix' );
@@ -89,11 +78,9 @@ class SettingsPageTest extends TestCase {
 	/**
 	 * Test enqueue scripts
 	 *
-	 * @since {VERSION}
-	 *
-	 * @throws \Brain\Monkey\Expectation\Exception\ExpectationArgsRequired Invalid arguments.
+	 * @throws ExpectationArgsRequired Invalid arguments.
 	 */
-	public function test_enqueue_scripts() {
+	public function testEnqueueScripts(): void {
 		$settings = new SettingsPage();
 		expect( 'wp_enqueue_script' )
 			->once()
@@ -111,11 +98,9 @@ class SettingsPageTest extends TestCase {
 	/**
 	 * Test register menu
 	 *
-	 * @since {VERSION}
-	 *
-	 * @throws \Brain\Monkey\Expectation\Exception\ExpectationArgsRequired Invalid arguments.
+	 * @throws ExpectationArgsRequired
 	 */
-	public function test_add_menu() {
+	public function testAddMenu(): void {
 		$settings = new SettingsPage();
 		when( 'esc_html__' )->returnArg();
 		expect( 'add_menu_page' )
@@ -137,17 +122,15 @@ class SettingsPageTest extends TestCase {
 	/**
 	 * Test view for settings page
 	 *
-	 * @since {VERSION}
-	 *
-	 * @throws \Brain\Monkey\Expectation\Exception\ExpectationArgsRequired Invalid arguments.
+	 * @throws ExpectationArgsRequired
 	 */
-	public function test_page_option() {
-		$page_title = 'Plugin Name Settings';
-		$settings   = new SettingsPage();
+	public function testPageOption(): void {
+		$pageTitle = 'Plugin Name Settings';
+		$settings  = new SettingsPage();
 		expect( 'get_admin_page_title' )
 			->once()
 			->withNoArgs()
-			->andReturn( $page_title );
+			->andReturn( $pageTitle );
 		when( 'esc_html' )->returnArg();
 
 		$settings->page_options();
