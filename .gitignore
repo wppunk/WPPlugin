@@ -9,4 +9,5 @@
 /vendor/
 /vendor-bin/
 /vendor_prefixed/
-.phpcs.cache
+.env.development
+.env.production
