@@ -10,7 +10,7 @@ extensions:
         - Codeception\Extension\RunFailed
 params:
     - env
-    - .env.development
+    - .codeception/_config/params.php
 settings:
     backup_globals: false
     colors: true
