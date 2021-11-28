@@ -26,11 +26,12 @@
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
 		"lucatume/wp-browser": "^3.0",
 		"phpcompatibility/php-compatibility": "^9.3",
-		"wp-coding-standards/wpcs": "^2.3"
+		"wp-coding-standards/wpcs": "^2.3",
+		"wppunk/wpplugin-replace": "^0.1.0"
 	},
 	"autoload": {
 		"psr-4": {
-			"PluginName\\": "src/"
+			"PluginSlug\\": "src/"
 		},
 		"classmap": [
 			"vendor_prefixed/"

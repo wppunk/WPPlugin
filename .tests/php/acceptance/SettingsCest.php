@@ -5,7 +5,7 @@
  * @since   {VERSION}
  * @link    {URL}
  * @license GPLv2 or later
- * @package PluginName
+ * @package PluginSlug
  * @author  {AUTHOR}
  */
 
@@ -23,7 +23,7 @@ class SettingsCest {
 	 */
 	public function visitSettingsPage( AcceptanceTester $i ): void {
 		$i->loginAsAdmin();
-		$i->amOnAdminPage( '/admin.php?page=plugin-name' );
+		$i->amOnAdminPage( '/admin.php?page=plugin-slug' );
 		$i->see( 'Plugin Name Settings' );
 	}
 

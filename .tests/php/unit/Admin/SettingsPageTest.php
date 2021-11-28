@@ -5,16 +5,16 @@
  * @since   {VERSION}
  * @link    {URL}
  * @license GPLv2 or later
- * @package PluginName
+ * @package PluginSlug
  * @author  {AUTHOR}
  */
 
-namespace PluginNameUnitTests\Admin;
+namespace PluginSlugUnitTests\Admin;
 
 use Brain\Monkey\Expectation\Exception\ExpectationArgsRequired;
-use PluginName\Plugin;
-use PluginNameTests\TestCase;
-use PluginName\Admin\SettingsPage;
+use PluginSlug\Plugin;
+use PluginSlugTests\TestCase;
+use PluginSlug\Admin\SettingsPage;
 
 use function Brain\Monkey\Functions\when;
 use function Brain\Monkey\Functions\expect;
@@ -56,14 +56,14 @@ class SettingsPageTest extends TestCase {
 		expect( 'wp_enqueue_style' )
 			->once()
 			->with(
-				'plugin-name-settings',
-				PLUGIN_NAME_URL . 'assets/build/css/admin/settings.css',
+				'plugin-slug-settings',
+				PLUGIN_SLUG_URL . 'assets/build/css/admin/settings.css',
 				[],
 				Plugin::VERSION,
 				'all'
 			);
 
-		$settings->enqueue_styles( 'plugin-name' );
+		$settings->enqueue_styles( 'plugin-slug' );
 	}
 
 	/**
@@ -85,14 +85,14 @@ class SettingsPageTest extends TestCase {
 		expect( 'wp_enqueue_script' )
 			->once()
 			->with(
-				'plugin-name-settings',
-				PLUGIN_NAME_URL . 'assets/build/js/admin/settings.js',
+				'plugin-slug-settings',
+				PLUGIN_SLUG_URL . 'assets/build/js/admin/settings.js',
 				[ 'jquery' ],
 				Plugin::VERSION,
 				true
 			);
 
-		$settings->enqueue_scripts( 'plugin-name' );
+		$settings->enqueue_scripts( 'plugin-slug' );
 	}
 
 	/**

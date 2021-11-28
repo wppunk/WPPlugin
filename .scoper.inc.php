@@ -6,7 +6,7 @@ use Isolated\Symfony\Component\Finder\Finder;
 
 return [
 	// The prefix configuration. If a non null value will be used, a random prefix will be generated.
-	'prefix'                     => 'PluginName\\Vendor',
+	'prefix'                     => 'PluginSlug\\Vendor',
 	'whitelist-global-constants' => false,
 	'whitelist-global-classes'   => false,
 	'whitelist-global-functions' => false,

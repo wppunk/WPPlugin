@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== {PLUGIN_NAME} ===
 Contributors: {AUTHOR}
 Donate link: TODO: Fill ( https://your-donate.link )
 Tags: TODO: Fill ( tag1, tag2, tag3 )
@@ -20,7 +20,7 @@ Plugin description on plugin page.
 
 == Installation ==
 
-1. Upload `plugin-name` folder to the `/wp-content/plugins/` directory.
+1. Upload `plugin-slug` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==

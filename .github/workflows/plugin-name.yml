@@ -1,4 +1,4 @@
-name: PluginName GitHub Actions
+name: PluginSlug GitHub Actions
 
 on: [push]
 
@@ -16,18 +16,18 @@ jobs:
             php-extensions: mysql
             php-ini-values: post_max_size=256M
             wp-directory: wordpress
-            wp-plugins-directory: wordpress/wp-content/plugins/plugin-name/
+            wp-plugins-directory: wordpress/wp-content/plugins/plugin-slug/
             DB_HOST: 127.0.0.1
             DB_TABLE_PREFIX: wp_
             DB_NAME: test_db
             DB_USER: user
             DB_PASSWORD: passw0rd
-            WP_URL: https://plugin-name.test
+            WP_URL: https://plugin-slug.test
             WP_ADMIN_PATH: /wp-admin
-            WP_DOMAIN: plugin-name.test
+            WP_DOMAIN: plugin-slug.test
             WP_ADMIN_USERNAME: admin
             WP_ADMIN_PASSWORD: admin
-            WP_ADMIN_EMAIL: admin@plugin-name.test
+            WP_ADMIN_EMAIL: admin@plugin-slug.test
 
         services:
             mysql:
@@ -144,11 +144,11 @@ jobs:
                     sudo apt-get update
                     sudo apt-get install apache2 libapache2-mod-php7.4
                     mkdir -p logs
-                    sudo cp ${{ env.wp-plugins-directory }}/.github/workflows/plugin-name.conf /etc/apache2/sites-available/plugin-name.conf
+                    sudo cp ${{ env.wp-plugins-directory }}/.github/workflows/plugin-slug.conf /etc/apache2/sites-available/plugin-slug.conf
                     sudo a2enmod headers
                     sudo a2enmod rewrite
                     sudo a2enmod ssl
-                    sudo a2ensite plugin-name
+                    sudo a2ensite plugin-slug
                     sudo apachectl configtest
                     sudo service apache2 restart
 

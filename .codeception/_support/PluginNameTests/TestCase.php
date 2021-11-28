@@ -5,11 +5,11 @@
  * @since   {VERSION}
  * @link    {URL}
  * @license GPLv2 or later
- * @package PluginName
+ * @package PluginSlug
  * @author  {AUTHOR}
  */
 
-namespace PluginNameTests;
+namespace PluginSlugTests;
 
 use Mockery;
 
@@ -21,7 +21,7 @@ use function Brain\Monkey\tearDown;
  *
  * @since   {VERSION}
  *
- * @package PluginNameTests
+ * @package PluginSlugTests
  */
 abstract class TestCase extends \Codeception\PHPUnit\TestCase {
 

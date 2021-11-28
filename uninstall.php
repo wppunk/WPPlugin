@@ -1,11 +1,11 @@
 <?php
 /**
- * Uninstall PluginName
+ * Uninstall PluginSlug
  *
  * @since   {VERSION}
  * @link    {URL}
  * @license GPLv2 or later
- * @package PluginName
+ * @package PluginSlug
  * @author  {AUTHOR}
  */
 

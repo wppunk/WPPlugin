@@ -35,8 +35,8 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 │   └── _support/                   # → Additional classes for the Codeception tests.
 ├── .github/                        # → GitHub additional directories.
 │   └── workflows/                  # → Workflows.
-│       ├── plugin-name.conf        # → Config for the server.
-│       └── plugin-name.yml         # → Actions for GitHub.
+│       ├── plugin-slug.conf        # → Config for the server.
+│       └── plugin-slug.yml         # → Actions for GitHub.
 ├── .tests/                         # → Tests.
 │   └── php                         # → PHP tests.
 │       ├── acceptance              # → PHP Acceptance tests.
@@ -68,7 +68,7 @@ plugins/your-awesome-plugin/        # → Root of your plugin.
 ├── LICENSE                         # → License file.
 ├── package.json                    # → JS dependencies and scripts.
 ├── package-lock.json               # → Package lock file (never edit).
-├── plugin-name.php                 # → Bootstrap plugin file.
+├── plugin-slug.php                 # → Bootstrap plugin file.
 ├── README.md                       # → Readme MD for GitHub repository.
 ├── readme.txt                      # → Readme TXT for the wp.org repository.
 └── uninstall.php                   # → Uninstall file.
@@ -148,7 +148,7 @@ npm run start
 ## GitHub
 
 ### GH Actions
-All steps for GH Actions you can find in `.github/workflows/plugin-name.yml` file. Also, for wake up a webserver, we need to add `.github/workflows/plugin-name.conf` 
+All steps for GH Actions you can find in `.github/workflows/plugin-slug.yml` file. Also, for wake up a webserver, we need to add `.github/workflows/plugin-slug.conf` 
 
 ### GH Hooks
 
@@ -164,10 +164,10 @@ The lightweight [Dependency Injection](https://github.com/rdlowrey/auryn) compon
 
 Automatic load your dependencies using the type hinting.
 
-You can disable plugin hooks very easily using a DIC. Just get the plugin object from the dependency injection container `$container_builder->get( PluginName\Front\Front::class )`. Example just disabling frontend assets:
+You can disable plugin hooks very easily using a DIC. Just get the plugin object from the dependency injection container `$container_builder->get( PluginSlug\Front\Front::class )`. Example just disabling frontend assets:
 ```
-function remove_plugin_name_frontend_assets( $injector ) {
-    $front = $injector->make( PluginName\Front\Front::class );
+function remove_plugin_slug_frontend_assets( $injector ) {
+    $front = $injector->make( PluginSlug\Front\Front::class );
     if ( ! $front ) {
         return;
     }
@@ -175,7 +175,7 @@ function remove_plugin_name_frontend_assets( $injector ) {
     remove_action( 'wp_enqueue_scripts', [ $front, 'enqueue_scripts' ] );
 }
 
-add_action( 'plugin_name_init', 'remove_plugin_name_frontend_assets' );
+add_action( 'plugin_slug_init', 'remove_plugin_slug_frontend_assets' );
 ```
 
 ## PHP Scoper
@@ -201,8 +201,8 @@ composer unit
 - Unit tests inside `.tests/php/unit/*` folder.
 - Bootstrap file `.tests/php/unit/_bootstrap.php`
 - Each filename for test class must have a suffix on `*Test.php`.
-- Each test class must extend a `PluginNameUnitTests\TestCase` class.
-- You can also add some code to `PluginNameUnitTests\TestCase.php`
+- Each test class must extend a `PluginSlugUnitTests\TestCase` class.
+- You can also add some code to `PluginSlugUnitTests\TestCase.php`
 - Each test method must have prefix `test_`
 - Additional files for autoloading in tests running you can add to `.codeception/_support/*` folder.
 

@@ -1,24 +1,24 @@
 <?php
 /**
- * PluginName frontend part
+ * PluginSlug frontend part
  *
  * @since   {VERSION}
  * @link    {URL}
  * @license GPLv2 or later
- * @package PluginName
+ * @package PluginSlug
  * @author  {AUTHOR}
  */
 
-namespace PluginName\Front;
+namespace PluginSlug\Front;
 
-use PluginName\Plugin;
+use PluginSlug\Plugin;
 
 /**
  * Class Front
  *
  * @since   {VERSION}
  *
- * @package PluginName\Front
+ * @package PluginSlug\Front
  */
 class Front {
 
@@ -39,8 +39,8 @@ class Front {
 	 */
 	public function enqueue_styles(): void {
 		wp_enqueue_style(
-			'plugin-name',
-			PLUGIN_NAME_URL . 'assets/build/css/main.css',
+			'plugin-slug',
+			PLUGIN_SLUG_URL . 'assets/build/css/main.css',
 			[],
 			Plugin::VERSION,
 			'all'
@@ -54,8 +54,8 @@ class Front {
 	 */
 	public function enqueue_scripts(): void {
 		wp_enqueue_script(
-			'plugin-name',
-			PLUGIN_NAME_URL . 'assets/build/js/main.js',
+			'plugin-slug',
+			PLUGIN_SLUG_URL . 'assets/build/js/main.js',
 			[],
 			Plugin::VERSION,
 			true

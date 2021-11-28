@@ -1,5 +1,5 @@
 {
-	"name": "plugin-name",
+	"name": "plugin-slug",
 	"version": "1.0.0",
 	"repository": "{URL}",
 	"author": "{AUTHOR} <{AUTHOR_URL}>",

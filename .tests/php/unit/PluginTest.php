@@ -5,21 +5,21 @@
  * @since   {VERSION}
  * @link    {URL}
  * @license GPLv2 or later
- * @package PluginName
+ * @package PluginSlug
  * @author  {AUTHOR}
  */
 
-namespace PluginNameUnitTests;
+namespace PluginSlugUnitTests;
 
 use Brain\Monkey\Expectation\Exception\ExpectationArgsRequired;
 use Exception;
-use PluginName\Plugin;
-use PluginName\Front\Front;
-use PluginNameTests\TestCase;
-use PluginName\Admin\SettingsPage;
+use PluginSlug\Plugin;
+use PluginSlug\Front\Front;
+use PluginSlugTests\TestCase;
+use PluginSlug\Admin\SettingsPage;
 
 use function Brain\Monkey\Functions\expect;
-use PluginName\Vendor\Auryn\Injector;
+use PluginSlug\Vendor\Auryn\Injector;
 
 /**
  * Class FrontTest

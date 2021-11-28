@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="PluginName">
-	<description>The code standard for PluginName.</description>
+<ruleset name="PluginSlug">
+	<description>The code standard for PluginSlug.</description>
 	<config name="testVersion" value="7.2-"/>
 	<exclude-pattern>\.codeception/*</exclude-pattern>
 	<exclude-pattern>\.github/*</exclude-pattern>

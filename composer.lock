@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0f09b9ae27818ef43f1a996c3660b34",
+    "content-hash": "368f390eb1d8e181905560cc1bffd079",
     "packages": [
         {
             "name": "rdlowrey/auryn",
@@ -5675,6 +5675,37 @@
                 "wiki": "https://github.com/WordPress/WordPress-Coding-Standards/wiki"
             },
             "time": "2020-05-13T23:57:56+00:00"
+        },
+        {
+            "name": "wppunk/wpplugin-replace",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wppunk/wpplugin-replace.git",
+                "reference": "cb98302d7e80f7601d5efbc5a2e25297fd7767a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wppunk/wpplugin-replace/zipball/cb98302d7e80f7601d5efbc5a2e25297fd7767a8",
+                "reference": "cb98302d7e80f7601d5efbc5a2e25297fd7767a8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "symfony/finder": ">=5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "wppunk\\PluginRename\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "support": {
+                "issues": "https://github.com/wppunk/wpplugin-replace/issues",
+                "source": "https://github.com/wppunk/wpplugin-replace/tree/v0.1"
+            },
+            "time": "2020-10-26T00:12:05+00:00"
         },
         {
             "name": "zordius/lightncandy",

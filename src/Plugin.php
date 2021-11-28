@@ -1,28 +1,28 @@
 <?php
 /**
- * PluginName Bootstrap class
+ * PluginSlug Bootstrap class
  *
  * @since   {VERSION}
  * @link    {URL}
  * @license GPLv2 or later
- * @package PluginName
+ * @package PluginSlug
  * @author  {AUTHOR}
  */
 
-namespace PluginName;
+namespace PluginSlug;
 
 use Exception;
-use PluginName\Front\Front;
-use PluginName\Admin\SettingsPage;
-use PluginName\Vendor\Auryn\Injector;
-use PluginName\Vendor\Auryn\InjectionException;
+use PluginSlug\Front\Front;
+use PluginSlug\Admin\SettingsPage;
+use PluginSlug\Vendor\Auryn\Injector;
+use PluginSlug\Vendor\Auryn\InjectionException;
 
 /**
  * Class Plugin
  *
  * @since   {VERSION}
  *
- * @package PluginName
+ * @package PluginSlug
  */
 class Plugin {
 
@@ -31,7 +31,7 @@ class Plugin {
 	 *
 	 * @since {VERSION}
 	 */
-	const SLUG = 'plugin-name';
+	const SLUG = 'plugin-slug';
 	/**
 	 * Plugin version
 	 *

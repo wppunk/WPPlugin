@@ -5,16 +5,16 @@
  * @since   {VERSION}
  * @link    {URL}
  * @license GPLv2 or later
- * @package PluginName
+ * @package PluginSlug
  * @author  {AUTHOR}
  */
 
-namespace PluginNameUnitTests\Front;
+namespace PluginSlugUnitTests\Front;
 
 use Brain\Monkey\Expectation\Exception\ExpectationArgsRequired;
-use PluginName\Plugin;
-use PluginName\Front\Front;
-use PluginNameTests\TestCase;
+use PluginSlug\Plugin;
+use PluginSlug\Front\Front;
+use PluginSlugTests\TestCase;
 
 use function Brain\Monkey\Functions\expect;
 
@@ -45,8 +45,8 @@ class FrontTest extends TestCase {
 		expect( 'wp_enqueue_style' )
 			->once()
 			->with(
-				'plugin-name',
-				PLUGIN_NAME_URL . 'assets/build/css/main.css',
+				'plugin-slug',
+				PLUGIN_SLUG_URL . 'assets/build/css/main.css',
 				[],
 				Plugin::VERSION,
 				'all'
@@ -65,8 +65,8 @@ class FrontTest extends TestCase {
 		expect( 'wp_enqueue_script' )
 			->once()
 			->with(
-				'plugin-name',
-				PLUGIN_NAME_URL . 'assets/build/js/main.js',
+				'plugin-slug',
+				PLUGIN_SLUG_URL . 'assets/build/js/main.js',
 				[],
 				Plugin::VERSION,
 				true

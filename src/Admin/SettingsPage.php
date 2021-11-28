@@ -1,24 +1,24 @@
 <?php
 /**
- * PluginName Settings
+ * PluginSlug Settings
  *
  * @since   {VERSION}
  * @link    {URL}
  * @license GPLv2 or later
- * @package PluginName
+ * @package PluginSlug
  * @author  {AUTHOR}
  */
 
-namespace PluginName\Admin;
+namespace PluginSlug\Admin;
 
-use PluginName\Plugin;
+use PluginSlug\Plugin;
 
 /**
  * Class SettingsPage
  *
  * @since   {VERSION}
  *
- * @package PluginName\Admin
+ * @package PluginSlug\Admin
  */
 class SettingsPage {
 
@@ -46,8 +46,8 @@ class SettingsPage {
 		}
 
 		wp_enqueue_style(
-			'plugin-name-settings',
-			PLUGIN_NAME_URL . 'assets/build/css/admin/settings.css',
+			'plugin-slug-settings',
+			PLUGIN_SLUG_URL . 'assets/build/css/admin/settings.css',
 			[],
 			Plugin::VERSION,
 			'all'
@@ -67,8 +67,8 @@ class SettingsPage {
 		}
 
 		wp_enqueue_script(
-			'plugin-name-settings',
-			PLUGIN_NAME_URL . 'assets/build/js/admin/settings.js',
+			'plugin-slug-settings',
+			PLUGIN_SLUG_URL . 'assets/build/js/admin/settings.js',
 			[ 'jquery' ],
 			Plugin::VERSION,
 			true
@@ -82,8 +82,8 @@ class SettingsPage {
 	 */
 	public function add_menu(): void {
 		add_menu_page(
-			esc_html__( 'Plugin Name Settings', 'plugin-name' ),
-			esc_html__( 'Plugin Name', 'plugin-name' ),
+			esc_html__( 'Plugin Name Settings', 'plugin-slug' ),
+			esc_html__( 'Plugin Name', 'plugin-slug' ),
 			'manage_options',
 			Plugin::SLUG,
 			[
@@ -99,7 +99,7 @@ class SettingsPage {
 	 * @since {VERSION}
 	 */
 	public function page_options(): void {
-		require_once PLUGIN_NAME_PATH . 'templates/admin/settings.php';
+		require_once PLUGIN_SLUG_PATH . 'templates/admin/settings.php';
 	}
 
 }
