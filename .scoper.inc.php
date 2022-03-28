@@ -7,9 +7,9 @@ use Isolated\Symfony\Component\Finder\Finder;
 return [
 	// The prefix configuration. If a non null value will be used, a random prefix will be generated.
 	'prefix'                     => 'PluginName\\Vendor',
-	'whitelist-global-constants' => false,
-	'whitelist-global-classes'   => false,
-	'whitelist-global-functions' => false,
+	'expose-global-constants'    => false,
+    	'expose-global-classes'      => false,
+    	'expose-global-functions'    => false,
 
 	/**
 	 * By default when running php-scoper add-prefix, it will prefix all relevant code found in the current working
